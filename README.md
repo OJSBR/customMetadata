@@ -6,12 +6,13 @@
 
 A generic plugin for **Open Monograph Press (OMP)** that lets you add configurable extra
 metadata fields to the publication **Metadata** tab. The values are persisted in the
-publication schema and are available in the book theme via
-`$publication->getData('key')` or `$publication->getLocalizedData('key')`.
+publication schema and are available in the book theme via `$publication->getData('key')`
+or `$publication->getLocalizedData('key')`.
 
-> Developed by **[OJSBR](https://ojsbr.com.br)**.
+> **Developed and maintained by [OJSBR](https://ojsbr.com.br).** See the
+> [Credits & authorship](#credits--authorship) section below.
 
-## Compatibility / branches
+## Compatibility & branches
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
@@ -19,8 +20,8 @@ publication schema and are available in the book theme via
 
 ## Installation
 
-1. Install via **Settings → Website → Plugins → Upload A New Plugin**, or extract the
-   folder into `plugins/generic/` so you get `plugins/generic/customMetadata/`.
+1. Install via **Settings → Website → Plugins → Upload A New Plugin**, or extract the folder
+   into `plugins/generic/` so you get `plugins/generic/customMetadata/`.
 2. Enable **Custom Metadata** under the *Generic* plugins list.
 
 ## Configuration
@@ -31,8 +32,8 @@ Open the plugin **Settings** and declare one field per line, in the format:
 key | Label | type | multilingual
 ```
 
-- **key** — letters, numbers and underscore only. This is the name used to read the
-  value in the theme, e.g. `$publication->getData('printIsbn')`.
+- **key** — letters, numbers and underscore only; the name used in the theme, e.g.
+  `$publication->getData('printIsbn')`.
 - **Label** — the label shown on the Metadata tab.
 - **type** — `text` (default) or `textarea`.
 - **multilingual** — `1` or `yes` for multilingual fields; empty otherwise.
@@ -45,40 +46,43 @@ printIsbn | Print ISBN | text
 collection | Collection / Series | text | 1
 ```
 
+## Credits & authorship
+
+- **Developed and maintained by** [OJSBR](https://ojsbr.com.br) — original plugin.
+- Distributed under the **GNU GPL v3**.
+
 ## Contributing
 
 Issues and pull requests are welcome.
 
 ## License
 
-Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE).
+Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE) and `docs/COPYING`.
 
 ---
 
 ## 🇧🇷 Português
 
 Plugin genérico para o **Open Monograph Press (OMP)** que permite adicionar campos de
-metadados extras configuráveis à aba **Metadados** da publicação. Os valores são
-persistidos no schema da publicação e ficam disponíveis no tema do livro via
+metadados extras configuráveis à aba **Metadados** da publicação. Os valores são persistidos
+no schema da publicação e ficam disponíveis no tema do livro via
 `$publication->getData('chave')` ou `$publication->getLocalizedData('chave')`.
 
-> Desenvolvido pela **[OJSBR](https://ojsbr.com.br)**.
+> **Desenvolvido e mantido pela [OJSBR](https://ojsbr.com.br).** Veja a seção
+> [Créditos e autoria](#créditos-e-autoria) abaixo.
 
 ### Configuração
 
-Nas **Configurações** do plugin, declare um campo por linha no formato:
+Nas **Configurações** do plugin, declare um campo por linha no formato
+`chave | Rótulo | tipo | multilingue`. A **chave** aceita apenas letras, números e
+underscore e é o nome usado para ler o valor no tema; o **tipo** pode ser `text` (padrão) ou
+`textarea`; use `1`/`yes` para campos multilíngues. Linhas iniciadas por `#` são ignoradas.
 
-```
-chave | Rótulo | tipo | multilingue
-```
+### Créditos e autoria
 
-- **chave** — apenas letras, números e underscore; é o nome usado para ler o valor no
-  tema, ex.: `$publication->getData('printIsbn')`.
-- **Rótulo** — o texto exibido na aba Metadados.
-- **tipo** — `text` (padrão) ou `textarea`.
-- **multilingue** — `1` ou `yes` para campos multilíngues; vazio caso contrário.
-- Linhas iniciadas por `#` são ignoradas.
+- **Desenvolvido e mantido pela** [OJSBR](https://ojsbr.com.br) — plugin autoral.
+- Distribuído sob a **GNU GPL v3**.
 
 ### Licença
 
-Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE).
+Distribuído sob a **GNU GPL v3**. Veja [`LICENSE`](LICENSE) e `docs/COPYING`.
