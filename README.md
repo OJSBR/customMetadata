@@ -1,8 +1,11 @@
-# Custom Metadata — OMP plugin
+# Custom Metadata — OMP plugin (OMP 3.4 branch)
 
 [![OMP](https://img.shields.io/badge/OMP-3.4-brightgreen)](https://pkp.sfu.ca/omp/)
 [![Version](https://img.shields.io/badge/version-1.0.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
+
+> **This is the `stable-3_4_0` branch (OMP 3.4).** For OMP 3.5 use the
+> [`stable-3_5_0`](../../tree/stable-3_5_0) branch.
 
 A generic plugin for **Open Monograph Press (OMP)** that lets you add configurable extra
 metadata fields to the publication **Metadata** tab. The values are persisted in the
@@ -16,7 +19,8 @@ or `$publication->getLocalizedData('key')`.
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) *(default)* | 1.0.0.0 |
+| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.0.0 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) *(this branch)* | 1.0.0.0 |
 
 ## Installation
 
@@ -53,7 +57,8 @@ collection | Collection / Series | text | 1
 
 ## Contributing
 
-Issues and pull requests are welcome.
+Issues and pull requests are welcome. Please target the branch matching the OMP version you
+are working against.
 
 ## License
 
@@ -62,6 +67,9 @@ Distributed under the **GNU GPL v3**. See [`LICENSE`](LICENSE) and `docs/COPYING
 ---
 
 ## 🇧🇷 Português
+
+> **Esta é a branch `stable-3_4_0` (OMP 3.4).** Para OMP 3.5 use a branch
+> [`stable-3_5_0`](../../tree/stable-3_5_0).
 
 Plugin genérico para o **Open Monograph Press (OMP)** que permite adicionar campos de
 metadados extras configuráveis à aba **Metadados** da publicação. Os valores são persistidos
