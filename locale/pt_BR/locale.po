@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customMetadata\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadados Personalizados"
+
+msgid "plugins.generic.customMetadata.description"
+msgstr "Permite cadastrar campos de metadados adicionais na aba Metadados da publicacao, para uso no tema do livro."
+
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definicao dos campos"
+
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Um campo por linha, no formato: chave | Rotulo | tipo | multilingue. O tipo pode ser text (padrao) ou textarea. Use 1 ou sim na ultima coluna para campos multilingues. A chave aceita apenas letras, numeros e underscore e e o nome usado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). Linhas iniciadas com # sao ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0"

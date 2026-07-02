@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: customMetadata\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Custom Metadata"
+
+msgid "plugins.generic.customMetadata.description"
+msgstr "Adds configurable extra metadata fields to the publication Metadata tab, available in the book theme."
+
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Field definitions"
+
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "One field per line, in the format: key | Label | type | multilingual. Type may be text (default) or textarea. Use 1 or yes in the last column for multilingual fields. The key accepts only letters, numbers and underscore and is the name used to read the value in the theme, e.g. $publication->getData('printIsbn'). Lines starting with # are ignored."
