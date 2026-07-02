@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/badge/version-1.0.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
+**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.0-omp3.5/customMetadata-1.0.0.0-omp3.5.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.0-omp3.4/customMetadata-1.0.0.0-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+
 > **This is the `stable-3_4_0` branch (OMP 3.4).** For OMP 3.5 use the
 > [`stable-3_5_0`](../../tree/stable-3_5_0) branch.
 
