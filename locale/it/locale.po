@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: OJSBR <eder@sotto.com.br>\n"
+"Language-Team: OJSBR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-16T00:00:00+00:00\n"
+"PO-Revision-Date: 2026-07-16T00:00:00+00:00\n"
+"Language: it\n"
+
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadati personalizzati"
+
+msgid "plugins.generic.customMetadata.description"
+msgstr "Aggiunge campi di metadati aggiuntivi configurabili alla scheda Metadati della pubblicazione, disponibili nel tema del libro."
+
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definizioni dei campi"
+
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Un campo per riga, nel formato: key | Label | type | multilingual. Il tipo può essere text (predefinito) o textarea. Usa 1 o yes nell'ultima colonna per i campi multilingue. La chiave accetta solo lettere, numeri e trattino basso ed è il nome usato per leggere il valore nel tema, ad es. $publication->getData('printIsbn'). Le righe che iniziano con # vengono ignorate."
