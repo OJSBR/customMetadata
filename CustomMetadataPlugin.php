@@ -214,7 +214,7 @@ class CustomMetadataPlugin extends GenericPlugin
     protected function resolveContextId(): int
     {
         $context = Application::get()->getRequest()->getContext();
-        return $context ? $context->getId() : Application::SITE_CONTEXT_ID;
+        return $context ? $context->getId() : Application::CONTEXT_SITE;
     }
 }
 

@@ -70,6 +70,6 @@ class CustomMetadataSettingsForm extends Form
     protected function getContextId(): int
     {
         $context = Application::get()->getRequest()->getContext();
-        return $context ? $context->getId() : Application::SITE_CONTEXT_ID;
+        return $context ? $context->getId() : Application::CONTEXT_SITE;
     }
 }

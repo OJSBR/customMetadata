@@ -1,10 +1,10 @@
 # Custom Metadata — OMP plugin (OMP 3.4 branch)
 
 [![OMP](https://img.shields.io/badge/OMP-3.4-brightgreen)](https://pkp.sfu.ca/omp/)
-[![Version](https://img.shields.io/badge/version-1.0.0.0-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-1.0.0.2-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.2-omp3.5/customMetadata-1.0.0.2-omp3.5.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.1-omp3.4/customMetadata-1.0.0.1-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.2-omp3.5/customMetadata-1.0.0.2-omp3.5.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.2-omp3.4/customMetadata-1.0.0.2-omp3.4.tar.gz) — or browse all [Releases](../../releases).
 
 > **This is the `stable-3_4_0` branch (OMP 3.4).** For OMP 3.5 use the
 > [`stable-3_5_0`](../../tree/stable-3_5_0) branch.
@@ -21,8 +21,8 @@ or `$publication->getLocalizedData('key')`.
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.0.0 |
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) *(this branch)* | 1.0.0.0 |
+| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.0.2 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) *(this branch)* | 1.0.0.2 |
 
 ## Installation
 
@@ -51,6 +51,18 @@ Example:
 printIsbn | Print ISBN | text
 collection | Collection / Series | text | 1
 ```
+
+## Changelog
+
+### 1.0.0.2 (2026-08-18) — OMP 3.4
+
+- **Fix (fatal without a request context):** replaced the non-existent constant
+  `Application::SITE_CONTEXT_ID` with `Application::CONTEXT_SITE` in `resolveContextId()`
+  (`CustomMetadataPlugin.php`) and `getContextId()` (`classes/CustomMetadataSettingsForm.php`).
+  `SITE_CONTEXT_ID` only exists in newer pkp-lib; on OMP 3.4 it is undefined, so the site-context
+  fallback — taken whenever there is no request context, e.g. during the scheduled/automatic DOI
+  deposit (`automaticDoiDeposit`) — threw `Undefined constant …SITE_CONTEXT_ID`. Manual export
+  from the UI was unaffected because a context is present there.
 
 ## Credits & authorship
 
