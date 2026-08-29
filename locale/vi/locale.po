@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: vi\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Siêu dữ liệu tùy chỉnh"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Thêm các trường siêu dữ liệu bổ sung có thể cấu hình vào thẻ Siêu dữ liệu của ấn phẩm, hiển thị trong giao diện sách."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Định nghĩa trường"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Mỗi dòng một trường, theo định dạng: key | Label | type | multilingual. Kiểu có thể là text (mặc định) hoặc textarea. Dùng 1 hoặc yes ở cột cuối cho các trường đa ngữ. Khóa chỉ nhận chữ cái, chữ số và dấu gạch dưới, và là tên dùng để đọc giá trị trong giao diện, ví dụ $publication->getData('printIsbn'). Các dòng bắt đầu bằng # sẽ bị bỏ qua."

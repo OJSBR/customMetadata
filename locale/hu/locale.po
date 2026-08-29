@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: hu\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Egyéni metaadatok"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Konfigurálható további metaadatmezőket ad a publikáció Metaadatok lapjához, amelyek a könyvsablonban érhetők el."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Meződefiníciók"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Soronként egy mező, ebben a formátumban: key | Label | type | multilingual. A típus lehet text (alapértelmezett) vagy textarea. Többnyelvű mezőknél az utolsó oszlopba írjon 1-et vagy yes-t. A kulcs csak betűt, számot és aláhúzást fogad el, és ezzel a névvel olvasható ki az érték a sablonban, pl. $publication->getData('printIsbn'). A # jellel kezdődő sorokat a rendszer figyelmen kívül hagyja."

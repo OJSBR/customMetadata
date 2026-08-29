@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: fa\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "فراداده‌های سفارشی"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "فیلدهای فرادادهٔ اضافی و قابل تنظیم را به زبانهٔ فرادادهٔ انتشار می‌افزاید که در پوستهٔ کتاب در دسترس است."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "تعریف فیلدها"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "هر سطر یک فیلد، با قالب: key | Label | type | multilingual. نوع می‌تواند text (پیش‌فرض) یا textarea باشد. برای فیلدهای چندزبانه در ستون آخر 1 یا yes بنویسید. کلید فقط حروف، عدد و زیرخط می‌پذیرد و همان نامی است که مقدار با آن در پوسته خوانده می‌شود، مثلاً $publication->getData('printIsbn'). سطرهایی که با # آغاز شوند نادیده گرفته می‌شوند."

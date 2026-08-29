@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ja\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "カスタムメタデータ"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "出版物のメタデータタブに設定可能な追加メタデータ項目を加え、書籍テーマで利用できるようにします。"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "フィールド定義"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "1行につき1項目を key | Label | type | multilingual の形式で記述します。type には text（既定）または textarea を指定できます。多言語項目では最後の列に 1 または yes を入れます。key は英数字とアンダースコアのみで、テーマ内で値を読み出す際の名前になります（例: $publication->getData('printIsbn')）。# で始まる行は無視されます。"

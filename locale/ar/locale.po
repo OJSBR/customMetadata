@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ar\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "بيانات وصفية مخصّصة"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "يضيف حقول بيانات وصفية إضافية قابلة للضبط إلى تبويب البيانات الوصفية للمنشور، وتظهر في قالب الكتاب."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "تعريفات الحقول"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "حقل واحد في كل سطر، بالصيغة: key | Label | type | multilingual. يكون النوع text (الافتراضي) أو textarea. استخدم 1 أو yes في العمود الأخير للحقول متعددة اللغات. لا يقبل المفتاح سوى الحروف والأرقام والشرطة السفلية، وهو الاسم المستخدم لقراءة القيمة في القالب، مثل $publication->getData('printIsbn'). وتُتجاهل الأسطر التي تبدأ بـ #."

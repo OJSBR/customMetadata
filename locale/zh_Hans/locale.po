@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: zh_Hans\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "自定义元数据"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "在出版物的元数据选项卡中添加可配置的额外元数据字段，可在图书主题中使用。"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "字段定义"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "每行一个字段，格式为：key | Label | type | multilingual。类型可为 text（默认）或 textarea。多语言字段请在最后一列填 1 或 yes。key 仅接受字母、数字和下划线，是在主题中读取该值所用的名称，例如 $publication->getData('printIsbn')。以 # 开头的行会被忽略。"

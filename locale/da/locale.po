@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: da\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Tilpassede metadata"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Tilføjer konfigurerbare ekstra metadatafelter til publikationens fane Metadata, tilgængelige i bogtemaet."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Feltdefinitioner"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Ét felt pr. linje i formatet: key | Label | type | multilingual. Typen kan være text (standard) eller textarea. Brug 1 eller yes i sidste kolonne til flersprogede felter. Nøglen accepterer kun bogstaver, tal og understreg og er det navn, værdien læses med i temaet, f.eks. $publication->getData('printIsbn'). Linjer, der begynder med #, ignoreres."

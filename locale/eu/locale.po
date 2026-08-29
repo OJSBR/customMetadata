@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: eu\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadatu pertsonalizatuak"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Metadatu-eremu gehigarri konfiguragarriak gehitzen dizkio argitalpenaren Metadatuak fitxari, liburuaren gaian erabilgarri."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Eremuen definizioak"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Eremu bat lerroko, formatu honetan: key | Label | type | multilingual. Mota text (lehenetsia) edo textarea izan daiteke. Eremu eleaniztunetarako, jarri 1 edo yes azken zutabean. Gakoak letrak, zenbakiak eta azpimarra soilik onartzen ditu, eta gaian balioa irakurtzeko erabiltzen den izena da, adib. $publication->getData('printIsbn'). # ikurrarekin hasten diren lerroak ez dira kontuan hartzen."

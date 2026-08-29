@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: cs\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Vlastní metadata"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Přidává konfigurovatelná doplňková pole metadat na kartu Metadata publikace, dostupná v šabloně knihy."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definice polí"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Jedno pole na řádek, ve formátu: key | Label | type | multilingual. Typ může být text (výchozí) nebo textarea. Pro vícejazyčná pole použijte v posledním sloupci 1 nebo yes. Klíč přijímá pouze písmena, číslice a podtržítko a je to název, kterým se hodnota čte v šabloně, např. $publication->getData('printIsbn'). Řádky začínající znakem # se ignorují."

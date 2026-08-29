@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ms\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadata Tersuai"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Menambah medan metadata tambahan yang boleh dikonfigurasi pada tab Metadata penerbitan, tersedia dalam tema buku."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Takrifan medan"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Satu medan setiap baris, dalam format: key | Label | type | multilingual. Jenis boleh text (lalai) atau textarea. Gunakan 1 atau yes pada lajur terakhir untuk medan berbilang bahasa. Kunci hanya menerima huruf, nombor dan garis bawah dan ialah nama yang digunakan untuk membaca nilainya dalam tema, contohnya $publication->getData('printIsbn'). Baris yang bermula dengan # diabaikan."

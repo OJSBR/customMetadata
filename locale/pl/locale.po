@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: pl\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadane niestandardowe"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Dodaje konfigurowalne dodatkowe pola metadanych na karcie Metadane publikacji, dostępne w motywie książki."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definicje pól"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Jedno pole w wierszu, w formacie: key | Label | type | multilingual. Typ może być text (domyślnie) lub textarea. W polach wielojęzycznych wpisz 1 lub yes w ostatniej kolumnie. Klucz przyjmuje wyłącznie litery, cyfry i podkreślenie i jest nazwą, pod którą wartość odczytuje się w motywie, np. $publication->getData('printIsbn'). Wiersze zaczynające się od # są pomijane."

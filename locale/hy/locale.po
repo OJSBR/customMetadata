@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: hy\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Հարմարեցված մետատվյալներ"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Հրապարակման «Մետատվյալներ» ներդիրին ավելացնում է կարգավորելի լրացուցիչ մետատվյալների դաշտեր, որոնք հասանելի են գրքի ձևանմուշում։"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Դաշտերի սահմանումներ"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Մեկ դաշտ՝ մեկ տողում, ձևաչափով՝ key | Label | type | multilingual։ Տեսակը կարող է լինել text (կանխադրված) կամ textarea։ Բազմալեզու դաշտերի համար վերջին սյունակում գրեք 1 կամ yes։ Բանալին ընդունում է միայն տառեր, թվեր և ընդգծում, և դա այն անունն է, որով արժեքը կարդացվում է ձևանմուշում, օրինակ՝ $publication->getData('printIsbn')։ # նշանով սկսվող տողերն անտեսվում են։"

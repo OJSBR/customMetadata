@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ru\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Пользовательские метаданные"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Добавляет настраиваемые дополнительные поля метаданных на вкладку «Метаданные» публикации, доступные в теме книги."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Определения полей"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "По одному полю в строке, в формате: key | Label | type | multilingual. Тип может быть text (по умолчанию) или textarea. Для многоязычных полей укажите в последнем столбце 1 или yes. Ключ принимает только буквы, цифры и подчёркивание и является именем, по которому значение читается в теме, например $publication->getData('printIsbn'). Строки, начинающиеся с #, игнорируются."

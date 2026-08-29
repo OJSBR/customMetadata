@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: mk\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Прилагодени метаподатоци"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Додава конфигурабилни дополнителни полиња со метаподатоци во картичката Метаподатоци на публикацијата, достапни во темата за книги."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Дефиниции на полиња"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "По едно поле во ред, во форматот: key | Label | type | multilingual. Типот може да биде text (стандардно) или textarea. За повеќејазични полиња користете 1 или yes во последната колона. Клучот прифаќа само букви, бројки и долна црта и е името со кое вредноста се чита во темата, на пр. $publication->getData('printIsbn'). Редовите што почнуваат со # се игнорираат."

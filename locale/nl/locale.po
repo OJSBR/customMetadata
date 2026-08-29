@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: nl\n"
+
+
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Aangepaste metadata"
+
+msgid "plugins.generic.customMetadata.description"
+msgstr "Voegt configureerbare extra metadatavelden toe aan het tabblad Metadata van de publicatie, beschikbaar in het boekthema."
+
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Velddefinities"
+
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Eén veld per regel, in de notatie: key | Label | type | multilingual. Het type kan text (standaard) of textarea zijn. Gebruik 1 of yes in de laatste kolom voor meertalige velden. De sleutel accepteert alleen letters, cijfers en een liggend streepje, en is de naam waarmee de waarde in het thema wordt uitgelezen, bijv. $publication->getData('printIsbn'). Regels die met # beginnen, worden genegeerd."

@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: ro\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadate personalizate"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Adaugă câmpuri suplimentare de metadate configurabile în fila Metadate a publicației, disponibile în tema cărții."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definiții ale câmpurilor"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Un câmp pe linie, în formatul: key | Label | type | multilingual. Tipul poate fi text (implicit) sau textarea. Folosiți 1 sau yes în ultima coloană pentru câmpurile multilingve. Cheia acceptă doar litere, cifre și liniuță de subliniere și este numele cu care se citește valoarea în temă, de ex. $publication->getData('printIsbn'). Liniile care încep cu # sunt ignorate."

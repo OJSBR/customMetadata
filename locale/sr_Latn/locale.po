@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: sr_Latn\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Prilagođeni metapodaci"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Dodaje podesiva dodatna polja metapodataka na karticu Metapodaci publikacije, dostupna u temi knjige."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definicije polja"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Jedno polje po redu, u formatu: key | Label | type | multilingual. Tip može biti text (podrazumevano) ili textarea. Za višejezična polja u poslednjoj koloni upišite 1 ili yes. Ključ prihvata samo slova, brojeve i donju crtu i predstavlja ime kojim se vrednost čita u temi, npr. $publication->getData('printIsbn'). Redovi koji počinju sa # se zanemaruju."

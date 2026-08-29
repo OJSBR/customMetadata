@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: el\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Προσαρμοσμένα μεταδεδομένα"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Προσθέτει παραμετροποιήσιμα επιπλέον πεδία μεταδεδομένων στην καρτέλα Μεταδεδομένα της δημοσίευσης, διαθέσιμα στο θέμα του βιβλίου."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Ορισμοί πεδίων"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Ένα πεδίο ανά γραμμή, στη μορφή: key | Label | type | multilingual. Ο τύπος μπορεί να είναι text (προεπιλογή) ή textarea. Χρησιμοποιήστε 1 ή yes στην τελευταία στήλη για πολύγλωσσα πεδία. Το κλειδί δέχεται μόνο γράμματα, αριθμούς και κάτω παύλα και είναι το όνομα με το οποίο διαβάζεται η τιμή στο θέμα, π.χ. $publication->getData('printIsbn'). Οι γραμμές που ξεκινούν με # αγνοούνται."

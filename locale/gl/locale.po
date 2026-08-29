@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: gl\n"
+
+
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Metadatos personalizados"
+
+msgid "plugins.generic.customMetadata.description"
+msgstr "Engade campos de metadatos adicionais configurables á lapela Metadatos da publicación, dispoñibles no tema do libro."
+
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Definicións dos campos"
+
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Un campo por liña, no formato: key | Label | type | multilingual. O tipo pode ser text (predeterminado) ou textarea. Use 1 ou yes na última columna para os campos multilingües. A chave só admite letras, números e guión baixo e é o nome co que se le o valor no tema, p. ex. $publication->getData('printIsbn'). As liñas que comezan por # ignóranse."

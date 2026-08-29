@@ -1,0 +1,25 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: fi\n"
+
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.displayName"
+msgstr "Mukautetut metatiedot"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.description"
+msgstr "Lisää julkaisun Metatiedot-välilehdelle mukautettavia lisämetatietokenttiä, jotka ovat käytettävissä kirjateemassa."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.label"
+msgstr "Kenttien määritykset"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.description"
+msgstr "Yksi kenttä riviä kohden muodossa: key | Label | type | multilingual. Tyyppi voi olla text (oletus) tai textarea. Käytä monikielisissä kentissä viimeisessä sarakkeessa arvoa 1 tai yes. Avain hyväksyy vain kirjaimia, numeroita ja alaviivan, ja se on nimi, jolla arvo luetaan teemassa, esim. $publication->getData('printIsbn'). Rivit, jotka alkavat merkillä #, ohitetaan."
