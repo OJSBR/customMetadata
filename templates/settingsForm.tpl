@@ -1,5 +1,5 @@
 {**
- * templates/settingsForm.tpl
+ * plugins/generic/customMetadata/templates/settingsForm.tpl
  *
  * Copyright (c) 2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
@@ -16,7 +16,7 @@
 	class="pkp_form"
 	id="customMetadataSettingsForm"
 	method="POST"
-	action="{url router=$smarty.const.ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}"
+	action="{url router=PKP\core\PKPApplication::ROUTE_COMPONENT op="manage" category="generic" plugin=$pluginName verb="settings" save=true}"
 >
 	{csrf}
 

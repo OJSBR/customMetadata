@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @file CustomMetadataPlugin.php
+ * @file plugins/generic/customMetadata/CustomMetadataPlugin.php
  *
  * Copyright (c) 2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
@@ -33,40 +33,41 @@ class CustomMetadataPlugin extends GenericPlugin
     protected $schemaKeys = [];
 
     /**
-     * @copydoc Plugin::register()
+     * Register the plugin and its hooks.
+     *
+     * @param string $category
+     * @param string $path
+     * @param null|int $mainContextId
      */
-    public function register($category, $path, $mainContextId = null)
+    public function register($category, $path, $mainContextId = null): bool
     {
         $success = parent::register($category, $path, $mainContextId);
-        if (Application::isUnderMaintenance()) {
-            return $success;
-        }
-        if (!$success) {
+        if (!$success || Application::isUnderMaintenance()) {
             return $success;
         }
 
-        // OMP 3.5 (PKP #11793): always register the hooks and check getEnabled()
-        // inside the callbacks, so the publication schema is extended on every
-        // request (display, save, API) and the SchemaDAO save does not silently
-        // drop the custom fields.
-        Hook::add('Schema::get::publication', [$this, 'addToSchema']);
-        Hook::add('Form::config::before', [$this, 'addToForm']);
+        // The hooks are always registered and the form checks whether the plugin is
+        // enabled (pkp/pkp-lib#11793): the publication schema must be extended on every
+        // request (display, save, API), or saving a publication silently drops the
+        // custom fields of a press where the plugin is off.
+        Hook::add('Schema::get::publication', $this->addToSchema(...));
+        Hook::add('Form::config::before', $this->addToForm(...));
 
         return $success;
     }
 
     /**
-     * @copydoc Plugin::getDisplayName()
+     * Name shown in the plugins list.
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return __('plugins.generic.customMetadata.displayName');
     }
 
     /**
-     * @copydoc Plugin::getDescription()
+     * Description shown in the plugins list.
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return __('plugins.generic.customMetadata.description');
     }
@@ -125,7 +126,7 @@ class CustomMetadataPlugin extends GenericPlugin
      *
      * Called by Hook::call('Schema::get::publication', [&$schema]).
      */
-    public function addToSchema(string $hookName, array $params): bool
+    public function addToSchema($hookName, $params): bool
     {
         $schema = $params[0];
         foreach ($this->getCustomFields() as $field) {
@@ -153,7 +154,7 @@ class CustomMetadataPlugin extends GenericPlugin
      * Called by Hook::run('Form::config::before', [$form]), so the second
      * argument is the form itself.
      */
-    public function addToForm(string $hookName, $form): bool
+    public function addToForm($hookName, $form): bool
     {
         if (!$form instanceof PKPMetadataForm) {
             return Hook::CONTINUE;
@@ -190,12 +191,12 @@ class CustomMetadataPlugin extends GenericPlugin
     }
 
     /**
-     * @copydoc Plugin::getActions()
+     * Add the settings action to the plugin entry in the plugins list.
      */
-    public function getActions($request, $actionArgs)
+    public function getActions($request, $actionArgs): array
     {
         $actions = parent::getActions($request, $actionArgs);
-        if (!$this->getEnabled()) {
+        if (!$request->getContext() || !$this->getEnabled()) {
             return $actions;
         }
         $router = $request->getRouter();
@@ -217,29 +218,30 @@ class CustomMetadataPlugin extends GenericPlugin
     }
 
     /**
-     * @copydoc Plugin::manage()
+     * Show and save the settings form.
      */
-    public function manage($args, $request)
+    public function manage($args, $request): JSONMessage
     {
-        switch ($request->getUserVar('verb')) {
-            case 'settings':
-                // The plugin grid does not check the CSRF token of manage() requests.
-                if ($request->getUserVar('save') && (!$request->isPost() || !$request->checkCSRF())) {
-                    return new JSONMessage(false, __('form.csrfInvalid'));
-                }
-                $form = new CustomMetadataSettingsForm($this);
-                if ($request->getUserVar('save')) {
-                    $form->readInputData();
-                    if ($form->validate()) {
-                        $form->execute();
-                        return new JSONMessage(true);
-                    }
-                } else {
-                    $form->initData();
-                }
-                return new JSONMessage(true, $form->fetch($request));
+        // The settings belong to a press; there is nothing to configure site-wide.
+        $context = $request->getContext();
+        if ($request->getUserVar('verb') !== 'settings' || !$context) {
+            return parent::manage($args, $request);
         }
-        return parent::manage($args, $request);
+
+        $form = new CustomMetadataSettingsForm($this, (int) $context->getId());
+        if (!$request->getUserVar('save')) {
+            $form->initData();
+            return new JSONMessage(true, $form->fetch($request));
+        }
+
+        $form->readInputData();
+        if (!$form->validate()) {
+            return new JSONMessage(true, $form->fetch($request));
+        }
+
+        $form->execute();
+
+        return new JSONMessage(true);
     }
 
     /**
