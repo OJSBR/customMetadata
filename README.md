@@ -1,10 +1,10 @@
 # Custom Metadata — OMP plugin
 
 [![OMP](https://img.shields.io/badge/OMP-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/omp/)
-[![Version](https://img.shields.io/badge/version-1.0.1.0-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-1.0.1.1-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.0/customMetadata-1.0.1.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.0.2-omp3.4/customMetadata-1.0.0.2-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.1/customMetadata-1.0.1.1.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.1-omp3.4/customMetadata-1.0.1.1-omp3.4.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Monograph Press (OMP)** that lets you add configurable extra
 metadata fields to the publication **Metadata** tab. The values are persisted in the
@@ -18,8 +18,8 @@ or `$publication->getLocalizedData('key')`.
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.1.0 |
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.0.2-omp3.4 |
+| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.1.1 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.1-omp3.4 |
 
 Both branches share the same feature set. The OMP 3.5 branch follows PKP issue #11793:
 the schema/form hooks are always registered and the `getEnabled()` check runs inside the
@@ -29,7 +29,8 @@ does not silently drop the custom fields.
 > **Upgrade from 1.0.0.x.** A field whose key already exists in the publication (for example
 > `title`) was left out of the schema but still shown on the Metadata tab, as a plain text field
 > in place of the native one, and a repeated key showed two fields. 1.0.1.0 ignores both lines.
-> Saving the settings now requires a POST with the form's CSRF token.
+> Saving the settings now requires a POST with the form's CSRF token. 1.0.1.1 restores the accents of
+> the Brazilian Portuguese translation.
 
 ## The problem
 
@@ -81,9 +82,13 @@ Values are stored as plain text and have no validation; print them in a theme wi
   lib/pkp/lib/vendor/bin/phpunit --configuration lib/pkp/tests/phpunit.xml --no-coverage "$PWD/plugins/generic/customMetadata/tests"
   ```
 
-- Verified on OMP 3.5.0.5: with `title`, a repeated key, a text and a multilingual textarea
-  declared, the Metadata form shows only the two new fields, and values saved through the
-  publication repository are read back with `getData()` and `getLocalizedData()`.
+- **Cypress** (`cypress/tests/functional/CustomMetadata.cy.js`): the definitions saved from the
+  plugin settings, and on the publication Metadata tab only the new, distinct keys, with a value
+  saved there and read back. Parameters: `contextPath`, `adminUser`, `adminPassword`,
+  `submissionId` (an unpublished submission).
+- Verified on OMP 3.5.0.5 and 3.4.0.10: with `title`, a repeated key, a text and a multilingual
+  textarea declared, the Metadata form shows only the two new fields, and values saved through
+  the publication repository are read back with `getData()` and `getLocalizedData()`.
 
 ## Credits & authorship
 
@@ -115,8 +120,8 @@ no schema da publicação e ficam disponíveis no tema do livro via
 
 | Versão do OMP | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OMP 3.5.x     | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.0.1.0 |
-| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.0.2-omp3.4 |
+| OMP 3.5.x     | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.0.1.1 |
+| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.1-omp3.4 |
 
 A branch do OMP 3.5 segue a issue #11793 da PKP: os hooks de schema/formulário são sempre
 registrados e o `getEnabled()` é checado dentro dos callbacks, para que o schema da
@@ -125,7 +130,8 @@ publicação seja estendido em todo request e o SchemaDAO não descarte os campo
 > **Atualização a partir da 1.0.0.x.** Um campo cuja chave já existe na publicação (por exemplo
 > `title`) ficava fora do schema, mas aparecia na aba Metadados como campo de texto simples no
 > lugar do nativo, e uma chave repetida mostrava dois campos. A 1.0.1.0 ignora as duas linhas.
-> Salvar as configurações agora exige POST com o token CSRF do formulário.
+> Salvar as configurações agora exige POST com o token CSRF do formulário. A 1.0.1.1 devolve os
+> acentos da tradução em português do Brasil.
 
 ### O problema
 
@@ -152,7 +158,9 @@ anterior. Os valores são texto sem validação; no tema, imprima com `|escape`.
 
 Suíte PHP em `tests/` (18 testes, pelo `tests/run.php` ou pelo PHPUnit do PKP): classes do plugin
 contra o PKP instalado, leitura das definições, schema sem perder propriedade nativa, configurações
-salvas só com POST e token CSRF, template e as 38 traduções. Verificado no OMP 3.5.0.5: com
+salvas só com POST e token CSRF, template e as 38 traduções. Spec Cypress em
+`cypress/tests/functional/`: definições salvas pelas configurações e, na aba Metadados, só as chaves
+novas e distintas, com valor salvo e lido de volta. Verificado no OMP 3.5.0.5 e 3.4.0.10: com
 `title`, uma chave repetida, um texto e uma área de texto multilíngue declarados, o formulário de
 Metadados mostra só os dois campos novos, e os valores salvos pelo repositório da publicação voltam
 com `getData()` e `getLocalizedData()`.

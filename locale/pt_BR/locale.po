@@ -12,13 +12,13 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Metadados Personalizados"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Permite cadastrar campos de metadados adicionais na aba Metadados da publicacao, para uso no tema do livro."
+msgstr "Permite cadastrar campos de metadados adicionais na aba Metadados da publicação, para uso no tema do livro."
 
 msgid "plugins.generic.customMetadata.fields.label"
-msgstr "Definicao dos campos"
+msgstr "Definição dos campos"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Um campo por linha, no formato: chave | Rotulo | tipo | multilingue. O tipo pode ser text (padrao) ou textarea. Use 1 ou sim na ultima coluna para campos multilingues. A chave aceita apenas letras, numeros e underscore e e o nome usado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). Linhas iniciadas com # sao ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0"
+msgstr "Um campo por linha, no formato: chave | Rótulo | tipo | multilíngue. O tipo pode ser text (padrão) ou textarea. Use 1 ou sim na última coluna para campos multilíngues. A chave aceita apenas letras, números e sublinhado e é o nome usado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). Linhas iniciadas com # são ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0"
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "É ignorada a linha cuja chave já existe na publicação (como title ou abstract) ou que repete uma chave anterior."
