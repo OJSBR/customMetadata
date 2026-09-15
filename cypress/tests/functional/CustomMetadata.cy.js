@@ -31,9 +31,11 @@ describe('Custom Metadata plugin', function() {
 		cy.clearCookies();
 		cy.request('/index.php/' + contextPath + '/login').then((response) => {
 			const token = /name="csrfToken" value="([^"]+)"/.exec(response.body)[1];
+			// OMP 3.5 redirects to a URL with the language, which would turn the POST into a GET.
+			const action = /<form[^>]*id="login"[^>]*action="([^"]+)"/.exec(response.body)[1];
 			cy.request({
 				method: 'POST',
-				url: '/index.php/' + contextPath + '/login/signIn',
+				url: action,
 				form: true,
 				body: {csrfToken: token, username: adminUser, password: adminPassword},
 				log: false,
@@ -66,16 +68,16 @@ describe('Custom Metadata plugin', function() {
 	};
 
 	// OMP 3.4 opens the workflow page with Publication > Metadata tabs; OMP 3.5
-	// opens the submission in the editorial dashboard, with a side menu.
+	// opens the submission in the editorial dashboard, on the menu item asked for.
 	const openMetadata = () => {
-		cy.visit('/index.php/' + contextPath + '/workflow/access/' + submissionId);
-		cy.get('body', {timeout: 60000}).then(($body) => {
-			if ($body.find('button[id="publication-button"]').length) {
+		cy.visit('/index.php/' + contextPath + '/workflow/access/' + submissionId + '?reload=' + Date.now());
+		cy.get('button[id="publication-button"], .pkpWorkspace, [class*="SideMenu"], nav', {timeout: 60000});
+		cy.location('pathname').then((pathname) => {
+			if (pathname.includes('/dashboard/')) {
+				cy.visit('/index.php/' + contextPath + '/dashboard/editorial?workflowSubmissionId=' + submissionId + '&workflowMenuKey=publication_metadata');
+			} else {
 				cy.get('button[id="publication-button"]').click();
 				cy.get('button[id="metadata-button"]', {timeout: 30000}).click();
-			} else {
-				cy.get('[data-cy="side-menu"], nav', {timeout: 60000});
-				cy.get('a[href*="metadata"], button[id*="metadata"], [data-cy*="metadata"]', {timeout: 60000}).first().click();
 			}
 		});
 		cy.get(field('reviewIsbn'), {timeout: 60000}).scrollIntoView().should('be.visible');
@@ -84,7 +86,7 @@ describe('Custom Metadata plugin', function() {
 	const saveMetadata = () => {
 		// Saved with POST and a method override.
 		cy.intercept('**/api/v1/submissions/*/publications/*').as('savePublication');
-		cy.get(field('reviewIsbn')).closest('form').find('.pkpFormPage__footer button').last().click();
+		cy.get(field('reviewIsbn')).closest('form').find('.pkpFormPage__footer button, button[type="submit"]').last().click();
 		cy.wait('@savePublication').its('response.statusCode').should('eq', 200);
 	};
 
