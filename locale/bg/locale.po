@@ -23,3 +23,7 @@ msgstr "Дефиниции на полетата"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "По едно поле на ред, във формат: key | Label | type | multilingual. Типът може да бъде text (по подразбиране) или textarea. Използвайте 1 или yes в последната колона за многоезични полета. Ключът приема само букви, цифри и долна черта и е името, с което стойността се чете в темата, напр. $publication->getData('printIsbn'). Редовете, започващи с #, се пренебрегват."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Ред, чийто ключ вече съществува в публикацията (например title или abstract) или повтаря предишен ключ, се пренебрегва."

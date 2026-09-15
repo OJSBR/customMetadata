@@ -3,13 +3,14 @@
 /**
  * @file CustomMetadataPlugin.php
  *
- * Plugin de metadados personalizados para OMP 3.5.
- *
- * Permite cadastrar campos de metadados simples (sem validacao) que aparecem
- * na aba "Metadados" da publicacao e ficam disponiveis no tema via
- * $publication->getData('chave') ou $publication->getLocalizedData('chave').
+ * Copyright (c) 2026 OJSBR (https://ojsbr.com)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CustomMetadataPlugin
+ *
+ * @brief Simple extra metadata fields (no validation) on the publication
+ *  Metadata tab, available in the theme through $publication->getData('key')
+ *  or $publication->getLocalizedData('key').
  */
 
 namespace APP\plugins\generic\customMetadata;
@@ -24,9 +25,13 @@ use PKP\linkAction\LinkAction;
 use PKP\linkAction\request\AjaxModal;
 use PKP\plugins\GenericPlugin;
 use PKP\plugins\Hook;
+use PKP\services\PKPSchemaService;
 
 class CustomMetadataPlugin extends GenericPlugin
 {
+    /** @var string[] Keys this plugin added to the publication schema in this request */
+    protected $schemaKeys = [];
+
     /**
      * @copydoc Plugin::register()
      */
@@ -40,10 +45,10 @@ class CustomMetadataPlugin extends GenericPlugin
             return $success;
         }
 
-        // OMP 3.5 (PKP #11793): SEMPRE registrar os hooks; o check de getEnabled()
-        // vai dentro dos callbacks. Isso garante que o schema da publicacao seja
-        // estendido em todo request (display, save, API) para que o save via
-        // SchemaDAO nao descarte silenciosamente os campos personalizados.
+        // OMP 3.5 (PKP #11793): always register the hooks and check getEnabled()
+        // inside the callbacks, so the publication schema is extended on every
+        // request (display, save, API) and the SchemaDAO save does not silently
+        // drop the custom fields.
         Hook::add('Schema::get::publication', [$this, 'addToSchema']);
         Hook::add('Form::config::before', [$this, 'addToForm']);
 
@@ -67,20 +72,29 @@ class CustomMetadataPlugin extends GenericPlugin
     }
 
     /**
-     * Le e normaliza a definicao dos campos personalizados configurada pelo usuario.
+     * Read and normalize the field definitions configured for the press.
      *
-     * Formato esperado (um campo por linha):
-     *   chave | Rotulo exibido | tipo | multilingue
+     * One field per line:
+     *   key | Label | type | multilingual
      *
-     * - chave: somente letras, numeros e underscore (usada em getData()).
-     * - tipo: "text" (padrao) ou "textarea".
-     * - multilingue: 1/sim/true para multilingue; vazio ou 0 para monolingue.
+     * - key: letters, numbers and underscore only (the name used in getData()).
+     * - type: "text" (default) or "textarea".
+     * - multilingual: 1/yes/true (or sim/s) for a multilingual field; empty or 0 otherwise.
      *
      * @return array<int,array{key:string,label:string,type:string,multilingual:bool}>
      */
     public function getCustomFields(): array
     {
-        $raw = (string) $this->getSetting($this->resolveContextId(), 'customFieldsDefinition');
+        return $this->parseDefinition((string) $this->getSetting($this->resolveContextId(), 'customFieldsDefinition'));
+    }
+
+    /**
+     * Parse a field definition text.
+     *
+     * @return array<int,array{key:string,label:string,type:string,multilingual:bool}>
+     */
+    public function parseDefinition(string $raw): array
+    {
         $fields = [];
         foreach (preg_split('/\r\n|\r|\n/', $raw) as $line) {
             $line = trim($line);
@@ -89,37 +103,37 @@ class CustomMetadataPlugin extends GenericPlugin
             }
             $parts = array_map('trim', explode('|', $line));
             $key = preg_replace('/[^A-Za-z0-9_]/', '', $parts[0] ?? '');
-            if ($key === '') {
+            if ($key === '' || isset($fields[$key])) {
                 continue;
             }
             $type = (isset($parts[2]) && strtolower($parts[2]) === 'textarea') ? 'textarea' : 'text';
             $multilingual = isset($parts[3]) && in_array(strtolower($parts[3]), ['1', 'sim', 'true', 'yes', 'y', 's']);
-            $fields[] = [
+            $fields[$key] = [
                 'key' => $key,
                 'label' => ($parts[1] ?? '') !== '' ? $parts[1] : $key,
                 'type' => $type,
                 'multilingual' => $multilingual,
             ];
         }
-        return $fields;
+        return array_values($fields);
     }
 
     /**
-     * Adiciona cada campo personalizado como propriedade do schema da publicacao,
-     * sem regras de validacao (apenas nullable), para que sejam salvos em
-     * publication_settings e recuperaveis via getData().
+     * Add each custom field to the publication schema, with no validation rule
+     * besides nullable, so it is saved in publication_settings and read back
+     * with getData().
      *
-     * Disparado por Hook::call('Schema::get::publication', [&$schema]),
-     * portanto o segundo argumento chega como array.
+     * Called by Hook::call('Schema::get::publication', [&$schema]).
      */
     public function addToSchema(string $hookName, array $params): bool
     {
         $schema = $params[0];
         foreach ($this->getCustomFields() as $field) {
-            // Nao sobrescreve propriedades nativas ja existentes no schema.
+            // Never replace a property the schema already has.
             if (isset($schema->properties->{$field['key']})) {
                 continue;
             }
+            $this->schemaKeys[] = $field['key'];
             $prop = (object) [
                 'type' => 'string',
                 'apiSummary' => true,
@@ -134,24 +148,30 @@ class CustomMetadataPlugin extends GenericPlugin
     }
 
     /**
-     * Adiciona os campos personalizados ao formulario de metadados da publicacao.
+     * Add the custom fields to the publication metadata form.
      *
-     * Disparado por Hook::run('Form::config::before', [$form]),
-     * portanto o segundo argumento chega como o proprio objeto do formulario.
+     * Called by Hook::run('Form::config::before', [$form]), so the second
+     * argument is the form itself.
      */
     public function addToForm(string $hookName, $form): bool
     {
         if (!$form instanceof PKPMetadataForm) {
             return Hook::CONTINUE;
         }
-        // OMP 3.5 (#11793): os hooks sao sempre registrados; o campo visual so
-        // aparece quando o plugin esta habilitado no contexto (press) atual.
+        // OMP 3.5 (#11793): the hooks are always registered; the fields are only
+        // shown when the plugin is enabled in the current press.
         if (!$this->getEnabled()) {
             return Hook::CONTINUE;
         }
 
+        // A key that names a property of the core or of another plugin is not
+        // shown: the field would replace that property's value on save.
+        app()->get('schema')->get(PKPSchemaService::SCHEMA_PUBLICATION);
         $publication = $form->publication;
         foreach ($this->getCustomFields() as $field) {
+            if (!in_array($field['key'], $this->schemaKeys, true)) {
+                continue;
+            }
             $options = [
                 'label' => $field['label'],
                 'isMultilingual' => $field['multilingual'],
@@ -203,6 +223,10 @@ class CustomMetadataPlugin extends GenericPlugin
     {
         switch ($request->getUserVar('verb')) {
             case 'settings':
+                // The plugin grid does not check the CSRF token of manage() requests.
+                if ($request->getUserVar('save') && (!$request->isPost() || !$request->checkCSRF())) {
+                    return new JSONMessage(false, __('form.csrfInvalid'));
+                }
                 $form = new CustomMetadataSettingsForm($this);
                 if ($request->getUserVar('save')) {
                     $form->readInputData();
@@ -219,7 +243,7 @@ class CustomMetadataPlugin extends GenericPlugin
     }
 
     /**
-     * Retorna o id do contexto (press) atual, com fallback para o contexto do site.
+     * The id of the current press, or the site context without one.
      */
     protected function resolveContextId(): int
     {

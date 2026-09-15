@@ -1,10 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: customMetadata\n"
-"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: en\n"
 
 
 msgid "plugins.generic.customMetadata.displayName"
@@ -18,3 +19,6 @@ msgstr "Field definitions"
 
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "One field per line, in the format: key | Label | type | multilingual. Type may be text (default) or textarea. Use 1 or yes in the last column for multilingual fields. The key accepts only letters, numbers and underscore and is the name used to read the value in the theme, e.g. $publication->getData('printIsbn'). Lines starting with # are ignored."
+
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "A line whose key already exists in the publication (such as title or abstract) or repeats an earlier key is ignored."

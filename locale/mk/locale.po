@@ -23,3 +23,7 @@ msgstr "Дефиниции на полиња"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "По едно поле во ред, во форматот: key | Label | type | multilingual. Типот може да биде text (стандардно) или textarea. За повеќејазични полиња користете 1 или yes во последната колона. Клучот прифаќа само букви, бројки и долна црта и е името со кое вредноста се чита во темата, на пр. $publication->getData('printIsbn'). Редовите што почнуваат со # се игнорираат."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Ред чиј клуч веќе постои во публикацијата (како title или abstract) или повторува претходен клуч се игнорира."

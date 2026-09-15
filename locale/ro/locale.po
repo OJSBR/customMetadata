@@ -23,3 +23,7 @@ msgstr "Definiții ale câmpurilor"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Un câmp pe linie, în formatul: key | Label | type | multilingual. Tipul poate fi text (implicit) sau textarea. Folosiți 1 sau yes în ultima coloană pentru câmpurile multilingve. Cheia acceptă doar litere, cifre și liniuță de subliniere și este numele cu care se citește valoarea în temă, de ex. $publication->getData('printIsbn'). Liniile care încep cu # sunt ignorate."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Un rând a cărui cheie există deja în publicație (cum ar fi title sau abstract) sau repetă o cheie anterioară este ignorat."

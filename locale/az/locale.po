@@ -23,3 +23,7 @@ msgstr "Sahə tərifləri"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Hər sətirdə bir sahə, formatda: key | Label | type | multilingual. Tip text (standart) və ya textarea ola bilər. Çoxdilli sahələr üçün son sütunda 1 və ya yes yazın. Açar yalnız hərf, rəqəm və alt xətt qəbul edir və mövzuda dəyəri oxumaq üçün istifadə olunan addır, məsələn $publication->getData('printIsbn'). # ilə başlayan sətirlər nəzərə alınmır."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Açarı nəşrdə artıq mövcud olan (məsələn, title və ya abstract) və ya əvvəlki açarı təkrarlayan sətir nəzərə alınmır."

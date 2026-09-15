@@ -19,3 +19,6 @@ msgstr "Définitions des champs"
 
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Un champ par ligne, au format : key | Label | type | multilingual. Le type peut être text (par défaut) ou textarea. Utilisez 1 ou yes dans la dernière colonne pour les champs multilingues. La clé n'accepte que des lettres, des chiffres et le tiret bas; c'est le nom qui sert à lire la valeur dans le thème, p. ex. $publication->getData('printIsbn'). Les lignes commençant par # sont ignorées."
+
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Une ligne dont la clé existe déjà dans la publication (comme title ou abstract) ou répète une clé précédente est ignorée."

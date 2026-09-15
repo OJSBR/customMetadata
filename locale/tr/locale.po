@@ -23,3 +23,7 @@ msgstr "Alan tanımları"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Her satırda bir alan, şu biçimde: key | Label | type | multilingual. Tür text (varsayılan) veya textarea olabilir. Çok dilli alanlar için son sütuna 1 ya da yes yazın. Anahtar yalnızca harf, rakam ve alt çizgi kabul eder ve değerin temada okunduğu addır, örn. $publication->getData('printIsbn'). # ile başlayan satırlar yok sayılır."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Anahtarı yayında zaten bulunan (title veya abstract gibi) ya da önceki bir anahtarı tekrarlayan satır yok sayılır."

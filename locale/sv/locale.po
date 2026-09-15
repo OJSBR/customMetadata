@@ -23,3 +23,7 @@ msgstr "Fältdefinitioner"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Ett fält per rad, i formatet: key | Label | type | multilingual. Typen kan vara text (standard) eller textarea. Använd 1 eller yes i sista kolumnen för flerspråkiga fält. Nyckeln accepterar endast bokstäver, siffror och understreck och är namnet som värdet läses med i temat, t.ex. $publication->getData('printIsbn'). Rader som börjar med # ignoreras."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "En rad vars nyckel redan finns i publikationen (till exempel title eller abstract) eller upprepar en tidigare nyckel ignoreras."

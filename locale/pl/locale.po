@@ -23,3 +23,7 @@ msgstr "Definicje pól"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Jedno pole w wierszu, w formacie: key | Label | type | multilingual. Typ może być text (domyślnie) lub textarea. W polach wielojęzycznych wpisz 1 lub yes w ostatniej kolumnie. Klucz przyjmuje wyłącznie litery, cyfry i podkreślenie i jest nazwą, pod którą wartość odczytuje się w motywie, np. $publication->getData('printIsbn'). Wiersze zaczynające się od # są pomijane."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Wiersz, którego klucz już istnieje w publikacji (np. title lub abstract) albo powtarza wcześniejszy klucz, jest pomijany."

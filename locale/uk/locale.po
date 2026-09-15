@@ -23,3 +23,7 @@ msgstr "Визначення полів"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "По одному полю в рядку, у форматі: key | Label | type | multilingual. Тип може бути text (типово) або textarea. Для багатомовних полів вкажіть у останньому стовпці 1 або yes. Ключ приймає лише літери, цифри й підкреслення і є іменем, за яким значення читається в темі, напр. $publication->getData('printIsbn'). Рядки, що починаються з #, ігноруються."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Рядок, ключ якого вже є в публікації (наприклад, title або abstract) або повторює попередній ключ, ігнорується."

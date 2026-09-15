@@ -23,3 +23,7 @@ msgstr "フィールド定義"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "1行につき1項目を key | Label | type | multilingual の形式で記述します。type には text（既定）または textarea を指定できます。多言語項目では最後の列に 1 または yes を入れます。key は英数字とアンダースコアのみで、テーマ内で値を読み出す際の名前になります（例: $publication->getData('printIsbn')）。# で始まる行は無視されます。"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "キーが出版物にすでに存在する行（title や abstract など）や、前の行と同じキーの行は無視されます。"

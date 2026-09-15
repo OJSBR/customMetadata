@@ -23,3 +23,7 @@ msgstr "Eremuen definizioak"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Eremu bat lerroko, formatu honetan: key | Label | type | multilingual. Mota text (lehenetsia) edo textarea izan daiteke. Eremu eleaniztunetarako, jarri 1 edo yes azken zutabean. Gakoak letrak, zenbakiak eta azpimarra soilik onartzen ditu, eta gaian balioa irakurtzeko erabiltzen den izena da, adib. $publication->getData('printIsbn'). # ikurrarekin hasten diren lerroak ez dira kontuan hartzen."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Argitalpenean dagoeneko badagoen gakoa (adibidez, title edo abstract) edo aurreko gako bat errepikatzen duen lerroa ez da kontuan hartzen."

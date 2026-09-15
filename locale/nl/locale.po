@@ -19,3 +19,6 @@ msgstr "Velddefinities"
 
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Eén veld per regel, in de notatie: key | Label | type | multilingual. Het type kan text (standaard) of textarea zijn. Gebruik 1 of yes in de laatste kolom voor meertalige velden. De sleutel accepteert alleen letters, cijfers en een liggend streepje, en is de naam waarmee de waarde in het thema wordt uitgelezen, bijv. $publication->getData('printIsbn'). Regels die met # beginnen, worden genegeerd."
+
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Een regel waarvan de sleutel al in de publicatie bestaat (zoals title of abstract) of een eerdere sleutel herhaalt, wordt genegeerd."

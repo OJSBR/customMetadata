@@ -23,3 +23,7 @@ msgstr "字段定义"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "每行一个字段，格式为：key | Label | type | multilingual。类型可为 text（默认）或 textarea。多语言字段请在最后一列填 1 或 yes。key 仅接受字母、数字和下划线，是在主题中读取该值所用的名称，例如 $publication->getData('printIsbn')。以 # 开头的行会被忽略。"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "键已存在于出版物中（如 title 或 abstract）或与前面的键重复的行将被忽略。"

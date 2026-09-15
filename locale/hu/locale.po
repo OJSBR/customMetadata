@@ -23,3 +23,7 @@ msgstr "Meződefiníciók"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Soronként egy mező, ebben a formátumban: key | Label | type | multilingual. A típus lehet text (alapértelmezett) vagy textarea. Többnyelvű mezőknél az utolsó oszlopba írjon 1-et vagy yes-t. A kulcs csak betűt, számot és aláhúzást fogad el, és ezzel a névvel olvasható ki az érték a sablonban, pl. $publication->getData('printIsbn'). A # jellel kezdődő sorokat a rendszer figyelmen kívül hagyja."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Figyelmen kívül marad az a sor, amelynek kulcsa már létezik a kiadványban (például title vagy abstract), vagy egy korábbi kulcsot ismétel."

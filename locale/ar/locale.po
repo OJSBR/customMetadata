@@ -23,3 +23,7 @@ msgstr "تعريفات الحقول"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "حقل واحد في كل سطر، بالصيغة: key | Label | type | multilingual. يكون النوع text (الافتراضي) أو textarea. استخدم 1 أو yes في العمود الأخير للحقول متعددة اللغات. لا يقبل المفتاح سوى الحروف والأرقام والشرطة السفلية، وهو الاسم المستخدم لقراءة القيمة في القالب، مثل $publication->getData('printIsbn'). وتُتجاهل الأسطر التي تبدأ بـ #."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "يُتجاهل السطر الذي يكون مفتاحه موجودًا بالفعل في المنشور (مثل title أو abstract) أو يكرر مفتاحًا سابقًا."

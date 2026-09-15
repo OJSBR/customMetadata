@@ -23,3 +23,7 @@ msgstr "Դաշտերի սահմանումներ"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Մեկ դաշտ՝ մեկ տողում, ձևաչափով՝ key | Label | type | multilingual։ Տեսակը կարող է լինել text (կանխադրված) կամ textarea։ Բազմալեզու դաշտերի համար վերջին սյունակում գրեք 1 կամ yes։ Բանալին ընդունում է միայն տառեր, թվեր և ընդգծում, և դա այն անունն է, որով արժեքը կարդացվում է ձևանմուշում, օրինակ՝ $publication->getData('printIsbn')։ # նշանով սկսվող տողերն անտեսվում են։"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Անտեսվում է այն տողը, որի բանալին արդեն կա հրապարակման մեջ (օրինակ՝ title կամ abstract) կամ կրկնում է նախորդ բանալին։"

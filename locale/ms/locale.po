@@ -23,3 +23,7 @@ msgstr "Takrifan medan"
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Satu medan setiap baris, dalam format: key | Label | type | multilingual. Jenis boleh text (lalai) atau textarea. Gunakan 1 atau yes pada lajur terakhir untuk medan berbilang bahasa. Kunci hanya menerima huruf, nombor dan garis bawah dan ialah nama yang digunakan untuk membaca nilainya dalam tema, contohnya $publication->getData('printIsbn'). Baris yang bermula dengan # diabaikan."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Baris yang kuncinya sudah wujud dalam penerbitan (seperti title atau abstract) atau mengulang kunci terdahulu diabaikan."

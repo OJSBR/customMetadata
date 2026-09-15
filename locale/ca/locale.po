@@ -19,3 +19,6 @@ msgstr "Definicions dels camps"
 
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Un camp per línia, en el format: key | Label | type | multilingual. El tipus pot ser text (per defecte) o textarea. Utilitzeu 1 o yes a l'última columna per als camps multilingües. La clau només admet lletres, números i guió baix, i és el nom amb què es llegeix el valor al tema, p. ex. $publication->getData('printIsbn'). Les línies que comencen amb # s'ignoren."
+
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "Una línia amb una clau que ja existeix a la publicació (com title o abstract) o que repeteix una clau anterior s'ignora."
