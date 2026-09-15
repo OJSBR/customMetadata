@@ -1,13 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"Last-Translator: OJSBR\n"
-"Language-Team: OJSBR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt\n"
+"Last-Translator: OJSBR\n"
+"Language-Team: OJSBR\n"
+"Language: pt_PT\n"
 
 
 msgid "plugins.generic.customMetadata.displayName"
@@ -21,3 +19,6 @@ msgstr "Definição dos campos"
 
 msgid "plugins.generic.customMetadata.fields.description"
 msgstr "Um campo por linha, no formato: chave | Rótulo | tipo | multilingue. O tipo pode ser text (predefinição) ou textarea. Utilize 1 ou sim na última coluna para campos multilingues. A chave aceita apenas letras, números e underscore e é o nome utilizado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). As linhas iniciadas por # são ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0"
+
+msgid "plugins.generic.customMetadata.fields.ignored"
+msgstr "É ignorada a linha cuja chave já existe na publicação (como title ou abstract) ou que repete uma chave anterior."

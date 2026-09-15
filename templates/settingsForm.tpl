@@ -1,7 +1,10 @@
 {**
  * templates/settingsForm.tpl
  *
- * Configuracao dos campos de metadados personalizados.
+ * Copyright (c) 2026 OJSBR (https://ojsbr.com)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
+ *
+ * Settings form: the custom field definitions.
  *}
 <script>
 	$(function() {ldelim}
@@ -29,6 +32,7 @@
 				rows=12
 				class="mceNoEditor"
 			}
+			<p class="description">{"plugins.generic.customMetadata.fields.ignored"|translate|escape}</p>
 		{/fbvFormSection}
 	{/fbvFormArea}
 

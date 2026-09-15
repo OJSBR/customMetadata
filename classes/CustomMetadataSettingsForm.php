@@ -3,9 +3,12 @@
 /**
  * @file classes/CustomMetadataSettingsForm.php
  *
- * Formulario de configuracao do plugin CustomMetadata.
+ * Copyright (c) 2026 OJSBR (https://ojsbr.com)
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CustomMetadataSettingsForm
+ *
+ * @brief Settings form of the Custom Metadata plugin.
  */
 
 namespace APP\plugins\generic\customMetadata\classes;
@@ -67,6 +70,9 @@ class CustomMetadataSettingsForm extends Form
         return parent::execute(...$functionArgs);
     }
 
+    /**
+     * The id of the current press, or the site context without one.
+     */
     protected function getContextId(): int
     {
         $context = Application::get()->getRequest()->getContext();
