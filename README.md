@@ -1,10 +1,10 @@
 # Custom Metadata — OMP plugin
 
 [![OMP](https://img.shields.io/badge/OMP-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/omp/)
-[![Version](https://img.shields.io/badge/version-1.0.1.1-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-1.0.1.2-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.1/customMetadata-1.0.1.1.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.1-omp3.4/customMetadata-1.0.1.1-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.2/customMetadata-1.0.1.2.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.2-omp3.4/customMetadata-1.0.1.2-omp3.4.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Monograph Press (OMP)** that lets you add configurable extra
 metadata fields to the publication **Metadata** tab. The values are persisted in the
@@ -18,10 +18,10 @@ or `$publication->getLocalizedData('key')`.
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.1.1 |
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.1-omp3.4 |
+| OMP 3.5.x   | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.0.1.2 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
 
-Both branches share the same feature set. The OMP 3.5 branch follows PKP issue #11793:
+Both branches share the same feature set and follow PKP issue #11793:
 the schema/form hooks are always registered and the `getEnabled()` check runs inside the
 callbacks, so the publication schema is extended on every request and the SchemaDAO save
 does not silently drop the custom fields.
@@ -72,28 +72,35 @@ Values are stored as plain text and have no validation; print them in a theme wi
 
 ## Tests
 
-- **PHP suite** (`tests/`, 18 tests): the plugin classes against the installed PKP, parsing of
-  the field definitions, the schema never losing a native property, saving the settings only
-  with a POST carrying the CSRF token, the template and the 38 translations. Run either way from
-  the OMP root:
+- **PHPUnit** (`tests/*Test.php`, on `PKP\tests\PKPTestCase`): the plugin classes against the
+  installed PKP, the plugin found by PKP's plugin registry, parsing of the field definitions, the
+  schema never losing a native property, the site level without settings, the template (a form
+  posted with a CSRF token) and the 38 translations. From the OMP root:
 
   ```bash
-  php plugins/generic/customMetadata/tests/run.php
   lib/pkp/lib/vendor/bin/phpunit --configuration lib/pkp/tests/phpunit.xml --no-coverage "$PWD/plugins/generic/customMetadata/tests"
   ```
 
-- **Cypress** (`cypress/tests/functional/CustomMetadata.cy.js`): the definitions saved from the
-  plugin settings, and on the publication Metadata tab only the new, distinct keys, with a value
-  saved there and read back. Parameters: `contextPath`, `adminUser`, `adminPassword`,
-  `submissionId` (an unpublished submission).
-- Verified on OMP 3.5.0.5 and 3.4.0.10: with `title`, a repeated key, a text and a multilingual
-  textarea declared, the Metadata form shows only the two new fields, and values saved through
-  the publication repository are read back with `getData()` and `getLocalizedData()`.
+- **Cypress** (`cypress/tests/functional/CustomMetadata.cy.js`, run by
+  [pkp-github-actions](https://github.com/pkp/pkp-github-actions) on OMP on every push): enables
+  the plugin, saves the definitions from the plugin settings, shows on the publication Metadata tab
+  only the new, distinct keys, saves a value there and reads it back (it fails with the schema hook
+  off), and puts the definitions and the value back. Parameters: `contextPath`, `adminUser`,
+  `adminPassword`, `submissionId` (an unpublished submission; default 1, as in PKP's data set).
+- Verified on OMP 3.5.0.5 and 3.4.0.10.
+
+Tests are kept in the repository and are not part of the release package.
 
 ## Credits & authorship
 
 - **Developed and maintained by** [OJSBR](https://ojsbr.com) — original plugin.
 - Distributed under the **GNU GPL v3**.
+
+## AI use
+
+Generative AI (Claude, by Anthropic) was used to write and run tests, improve the code and bring
+it in line with PKP standards. Every change is reviewed and tested by OJSBR, which is responsible
+for the published releases.
 
 ## Contributing
 
@@ -120,10 +127,10 @@ no schema da publicação e ficam disponíveis no tema do livro via
 
 | Versão do OMP | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OMP 3.5.x     | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.0.1.1 |
-| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.1-omp3.4 |
+| OMP 3.5.x     | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.0.1.2 |
+| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
 
-A branch do OMP 3.5 segue a issue #11793 da PKP: os hooks de schema/formulário são sempre
+As duas branches seguem a issue #11793 da PKP: os hooks de schema/formulário são sempre
 registrados e o `getEnabled()` é checado dentro dos callbacks, para que o schema da
 publicação seja estendido em todo request e o SchemaDAO não descarte os campos.
 
@@ -156,19 +163,26 @@ anterior. Os valores são texto sem validação; no tema, imprima com `|escape`.
 
 ### Testes
 
-Suíte PHP em `tests/` (18 testes, pelo `tests/run.php` ou pelo PHPUnit do PKP): classes do plugin
-contra o PKP instalado, leitura das definições, schema sem perder propriedade nativa, configurações
-salvas só com POST e token CSRF, template e as 38 traduções. Spec Cypress em
-`cypress/tests/functional/`: definições salvas pelas configurações e, na aba Metadados, só as chaves
-novas e distintas, com valor salvo e lido de volta. Verificado no OMP 3.5.0.5 e 3.4.0.10: com
-`title`, uma chave repetida, um texto e uma área de texto multilíngue declarados, o formulário de
-Metadados mostra só os dois campos novos, e os valores salvos pelo repositório da publicação voltam
-com `getData()` e `getLocalizedData()`.
+PHPUnit em `tests/` (sobre `PKP\tests\PKPTestCase`) e Cypress em `cypress/tests/functional/`
+(rodado pelo [pkp-github-actions](https://github.com/pkp/pkp-github-actions) no OMP a cada push),
+com os comandos da seção em inglês. A suíte cobre as classes contra o PKP instalado, o plugin
+encontrado pelo registro de plugins, a leitura das definições, o schema sem perder propriedade
+nativa, o nível do site sem configurações, o template e as 38 traduções; o Cypress salva as
+definições, confere na aba Metadados só as chaves novas e distintas e grava e relê um valor,
+devolvendo tudo como estava. Verificado no OMP 3.5.0.5 e 3.4.0.10.
+
+Os testes ficam no repositório e não fazem parte do pacote da release.
 
 ### Créditos e autoria
 
 - **Desenvolvido e mantido pela** [OJSBR](https://ojsbr.com) — plugin autoral.
 - Distribuído sob a **GNU GPL v3**.
+
+### Uso de IA
+
+Foi usada IA generativa (Claude, da Anthropic) para escrever e rodar testes, melhorar o código e
+alinhá-lo aos padrões da PKP. Toda mudança é revisada e testada pela OJSBR, que responde pelas
+releases publicadas.
 
 ### Licença
 

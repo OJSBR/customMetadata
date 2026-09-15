@@ -8,16 +8,19 @@
  *
  * @class CustomMetadataTest
  *
- * @brief Field definitions, the publication schema and the settings request.
+ * @brief Field definitions, the publication schema and the site level.
  */
 
 namespace APP\plugins\generic\customMetadata\tests;
 
-use APP\core\Application;
-use APP\core\PageRouter;
+use APP\plugins\generic\customMetadata\classes\CustomMetadataSettingsForm;
 use APP\plugins\generic\customMetadata\CustomMetadataPlugin;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PKP\tests\PKPTestCase;
 
-class CustomMetadataTest extends TestCase
+#[CoversClass(CustomMetadataPlugin::class)]
+#[CoversClass(CustomMetadataSettingsForm::class)]
+class CustomMetadataTest extends PKPTestCase
 {
     private function plugin(string $definition = ''): CustomMetadataPlugin
     {
@@ -62,38 +65,33 @@ class CustomMetadataTest extends TestCase
         $this->assertTrue($schema->properties->collection->multilingual);
     }
 
-    public function testSavingSettingsNeedsAPostWithTheCsrfToken(): void
+    public function testTheSiteLevelHasNoSettingsToOpen(): void
     {
-        // The refusal is translated, and translation asks the request for its router.
-        $appRequest = Application::get()->getRequest();
-        if (!$appRequest->getRouter()) {
-            $router = new PageRouter();
-            $router->setApplication(Application::get());
-            $appRequest->setRouter($router);
-        }
-        foreach ([[false, true], [true, false]] as [$post, $token]) {
-            $request = new class ($post, $token) {
-                public function __construct(private bool $post, private bool $token)
-                {
-                }
+        $request = new class () {
+            public function getContext()
+            {
+                return null;
+            }
 
-                public function getUserVar($name)
-                {
-                    return ['verb' => 'settings', 'save' => '1'][$name] ?? null;
-                }
+            public function getUserVar($name)
+            {
+                return $name === 'verb' ? 'settings' : null;
+            }
 
-                public function isPost()
-                {
-                    return $this->post;
-                }
+            public function getRouter()
+            {
+                throw new \RuntimeException('The site level must not build a settings URL.');
+            }
+        };
+        $plugin = new class () extends CustomMetadataPlugin {
+            public function getEnabled($contextId = null)
+            {
+                return true;
+            }
+        };
 
-                public function checkCSRF()
-                {
-                    return $this->token;
-                }
-            };
-            $message = $this->plugin()->manage([], $request);
-            $this->assertFalse($message->getStatus(), 'Settings were saved without a POST carrying the token.');
-        }
+        $this->assertSame([], array_filter($plugin->getActions($request, []), fn ($action) => $action->getId() === 'settings'));
+        $this->expectExceptionMessage('Unhandled management action!');
+        $plugin->manage([], $request);
     }
 }

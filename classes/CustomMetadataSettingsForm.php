@@ -1,44 +1,44 @@
 <?php
 
 /**
- * @file classes/CustomMetadataSettingsForm.php
+ * @file plugins/generic/customMetadata/classes/CustomMetadataSettingsForm.php
  *
  * Copyright (c) 2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @class CustomMetadataSettingsForm
  *
- * @brief Settings form of the Custom Metadata plugin.
+ * @brief Settings form of the Custom Metadata plugin: the field definitions of a press.
  */
 
 namespace APP\plugins\generic\customMetadata\classes;
 
-use APP\core\Application;
 use APP\template\TemplateManager;
 use PKP\form\Form;
+use PKP\form\validation\FormValidatorCSRF;
+use PKP\form\validation\FormValidatorPost;
 use PKP\plugins\Plugin;
 
 class CustomMetadataSettingsForm extends Form
 {
-    public Plugin $plugin;
-
-    public function __construct(Plugin $plugin)
+    public function __construct(private Plugin $plugin, private int $contextId)
     {
-        $this->plugin = $plugin;
         parent::__construct($plugin->getTemplateResource('settingsForm.tpl'));
+        $this->addCheck(new FormValidatorPost($this));
+        $this->addCheck(new FormValidatorCSRF($this));
     }
 
     /**
-     * @copydoc Form::initData()
+     * Load the field definitions of the press.
      */
     public function initData()
     {
-        $this->setData('customFieldsDefinition', $this->plugin->getSetting($this->getContextId(), 'customFieldsDefinition'));
+        $this->setData('customFieldsDefinition', $this->plugin->getSetting($this->contextId, 'customFieldsDefinition'));
         parent::initData();
     }
 
     /**
-     * @copydoc Form::readInputData()
+     * Read the submitted definitions.
      */
     public function readInputData()
     {
@@ -47,7 +47,9 @@ class CustomMetadataSettingsForm extends Form
     }
 
     /**
-     * @copydoc Form::fetch()
+     * Render the form.
+     *
+     * @param null|mixed $template
      */
     public function fetch($request, $template = null, $display = false)
     {
@@ -57,25 +59,11 @@ class CustomMetadataSettingsForm extends Form
     }
 
     /**
-     * @copydoc Form::execute()
+     * Save the field definitions of the press.
      */
     public function execute(...$functionArgs)
     {
-        $this->plugin->updateSetting(
-            $this->getContextId(),
-            'customFieldsDefinition',
-            (string) $this->getData('customFieldsDefinition'),
-            'string'
-        );
+        $this->plugin->updateSetting($this->contextId, 'customFieldsDefinition', (string) $this->getData('customFieldsDefinition'), 'string');
         return parent::execute(...$functionArgs);
-    }
-
-    /**
-     * The id of the current press, or the site context without one.
-     */
-    protected function getContextId(): int
-    {
-        $context = Application::get()->getRequest()->getContext();
-        return $context ? $context->getId() : Application::CONTEXT_SITE;
     }
 }
