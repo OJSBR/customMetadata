@@ -206,7 +206,21 @@ describe('Custom Metadata plugin', function() {
 		cy.visit(pageUrl('submissions') + '?reload=' + Date.now());
 
 		const title = 'OJSBR customMetadata ' + Date.now();
-		cy.window({log: false}).its('pkp.context.primaryLocale').then((locale) => {
+		// The language of the journal, asked of the journal itself: the page the
+		// test lands on does not always carry it.
+		request(pageUrl('api/v1/contexts?count=100')).then((response) => {
+			const list = typeof response.body === 'string' ? JSON.parse(response.body) : response.body;
+			const journal = (list.items || []).find((item) => item.urlPath === contextPath) || (list.items || [])[0];
+			expect(journal, 'the journal answers for itself').to.exist;
+
+			// The listing is a summary; the journal itself carries its language.
+			return request(pageUrl('api/v1/contexts/' + journal.id)).then((detail) => {
+				const context = typeof detail.body === 'string' ? JSON.parse(detail.body) : detail.body;
+				expect(context.primaryLocale, 'the language of the journal').to.be.a('string');
+
+				return cy.wrap(context.primaryLocale, {log: false});
+			});
+		}).then((locale) => {
 			request({url: pageUrl('api/v1/sections?count=1'), failOnStatusCode: false}).then((response) => {
 				let body = response.body;
 				if (typeof body === 'string') {
