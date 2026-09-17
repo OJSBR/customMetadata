@@ -148,6 +148,20 @@ describe('Custom Metadata plugin', function() {
 		cy.wait('@savePublication').its('response.statusCode').should('eq', 200);
 	};
 
+	// REST calls made from the page, carrying its session and token.
+	const send = (path, method, body) => cy.window({log: false}).then((win) => cy.wrap(
+		win.fetch(path, {
+			method: method,
+			credentials: 'same-origin',
+			headers: {'Content-Type': 'application/json', 'X-Csrf-Token': win.pkp.currentUser.csrfToken},
+			body: body === undefined ? undefined : JSON.stringify(body),
+		}).then((response) => response.json().then((answer) => ({status: response.status, body: answer}))),
+		{log: false, timeout: 60000}
+	));
+
+	// Submissions made by the tests, deleted in after() even when one fails.
+	const madeHere = [];
+
 	it('Enables the plugin and saves the field definitions', function() {
 		login(adminUser, adminPassword);
 		openPluginsTab();
@@ -182,6 +196,51 @@ describe('Custom Metadata plugin', function() {
 		saveMetadata();
 	});
 
+	// The definition of the journal names a key that the publication already has
+	// of its own (title). The plugin must not take it over: what a person writes
+	// in the title has to be there afterwards, and the value of a key of the
+	// journal has to be stored beside it. A submission of its own is used, so this
+	// says nothing about any data set.
+	it('Leaves a native property alone and stores the value of a key of the journal', function() {
+		login(adminUser, adminPassword);
+		cy.visit(pageUrl('submissions') + '?reload=' + Date.now());
+
+		const title = 'OJSBR customMetadata ' + Date.now();
+		cy.window({log: false}).its('pkp.context.primaryLocale').then((locale) => {
+			request({url: pageUrl('api/v1/sections?count=1'), failOnStatusCode: false}).then((response) => {
+				let body = response.body;
+				if (typeof body === 'string') {
+					try {
+						body = JSON.parse(body);
+					} catch (error) {
+						body = {};
+					}
+				}
+				const sectionId = (body && body.items && body.items.length) ? body.items[0].id : null;
+
+				return send(pageUrl('api/v1/submissions'), 'POST', sectionId ? {locale: locale, sectionId: sectionId} : {locale: locale});
+			}).then((created) => {
+				expect(created.status, 'the submission of the test was created: ' + JSON.stringify(created.body)).to.be.within(200, 201);
+				madeHere.push(created.body.id);
+				const publication = pageUrl('api/v1/submissions/' + created.body.id + '/publications/' + created.body.currentPublicationId);
+
+				return send(publication, 'PUT', {title: {[locale]: title}, reviewIsbn: '978-0-00-000000-0'})
+					.then((saved) => {
+						expect(saved.status, 'the publication was saved: ' + JSON.stringify(saved.body)).to.eq(200);
+
+						return api(publication);
+					})
+					.then((stored) => {
+						expect(stored.title[locale], 'the title of the publication is the one that was written')
+							.to.eq(title);
+						expect(stored.reviewIsbn, 'the value of the key of the journal is stored')
+							.to.eq('978-0-00-000000-0');
+					});
+			});
+		});
+	});
+
+
 	it('Puts the definitions back', function() {
 		if (original === null) {
 			return;
@@ -190,5 +249,14 @@ describe('Custom Metadata plugin', function() {
 		openPluginsTab();
 		openSettings();
 		saveDefinition(original);
+	});
+
+	after(function() {
+		if (!madeHere.length) {
+			return;
+		}
+		login(adminUser, adminPassword);
+		cy.visit(pageUrl('submissions') + '?reload=' + Date.now());
+		madeHere.forEach((id) => send(pageUrl('api/v1/submissions/' + id), 'DELETE'));
 	});
 });
