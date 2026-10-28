@@ -90,8 +90,9 @@ or an author an editor allowed to change the metadata — gets:
 
 - on the **Metadata** tab, the field as read-only text, with its value in every language and a
   note that only the editors can change it;
-- in the **submission wizard**, nothing: the field is left out of the "For the Editors" step,
-  where it would be empty;
+- in the **submission wizard**, nothing: the core shows the custom fields in the "For the
+  Editors" step when the journal or press asks the authors for other metadata there, and a field
+  kept for the editors is always left out of it for an author;
 - from the **publication API**, an error for any change to the field. Hiding the field is not
   enough, since the API accepts every key of the schema from whoever may edit the publication;
   a form that sends the value back unchanged is accepted.
@@ -113,11 +114,12 @@ or an author an editor allowed to change the metadata — gets:
   [pkp-github-actions](https://github.com/pkp/pkp-github-actions) on OJS and OMP, MySQL and
   PostgreSQL, on every push): enables the plugin, saves the definitions, shows on the Metadata tab
   only the new, distinct keys, saves a value and reads it back. Then an author makes a submission
-  of their own: their field is editable and saved, the editors' field comes read-only and the API
-  refuses a change to it; the editor fills it; the author sees the value, can send it back
-  unchanged but not change it; and, as a counter-check, without the fifth column the same change
-  goes through. Everything is put back at the end. Parameters: `contextPath`, `adminUser`,
-  `adminPassword`, `authorUser`, `authorPassword`, `submissionId` (defaults from PKP's data set).
+  of their own: their field is saved, the editors' field comes read-only on the Metadata form of a
+  submission of theirs and the API refuses a change to it; the editor fills it; the author sees
+  the value, can send it back unchanged but not change it; and, as a counter-check, without the
+  fifth column the same change goes through. Everything is put back at the end. Parameters:
+  `contextPath`, `adminUser`, `adminPassword`, `authorUser`, `authorPassword`,
+  `authorSubmittedTitle`, `submissionId` (defaults from PKP's data set).
 - Verified on OJS 3.5.0.5 and OMP 3.5.0.5 with real users on their databases: an author, an
   assigned section editor, a section editor not assigned and an administrator, values read back
   from `publication_settings`.
@@ -225,8 +227,9 @@ submissão, ou o autor a quem o editor liberou alterar os metadados — recebe:
 
 - na aba **Metadados**, o campo somente para leitura, com o valor em cada idioma e o aviso de que
   só os editores podem alterá-lo;
-- no **assistente de submissão**, nada: o campo fica fora do passo "Para os editores", onde
-  estaria vazio;
+- no **assistente de submissão**, nada: o núcleo mostra os campos personalizados no passo "Para
+  os editores" quando a revista ou editora pede outros metadados ali, e o campo reservado aos
+  editores sempre fica fora dele para o autor;
 - da **API da publicação**, um erro para qualquer alteração do campo. Esconder o campo não basta,
   porque a API aceita qualquer chave do schema de quem pode editar a publicação; o formulário que
   devolve o valor sem mudança é aceito.

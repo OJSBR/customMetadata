@@ -169,7 +169,9 @@ class CustomMetadataPlugin extends GenericPlugin
      * Editors" step of the submission wizard, which extends it.
      *
      * A field kept for the editors is shown to anybody else as read-only text on the
-     * Metadata tab, and left out of the submission wizard, where it would be empty.
+     * Metadata tab, and left out of the submission wizard. The wizard uses this form only
+     * when the context asks the authors for other metadata in it: it counts the fields
+     * before this hook adds any.
      *
      * Called by Hook::run('Form::config::before', [$form]), so the second
      * argument is the form itself.
