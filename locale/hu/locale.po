@@ -14,7 +14,7 @@ msgstr "Egyéni metaadatok"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Konfigurálható további metaadatmezőket ad a publikáció Metaadatok lapjához, amelyek a könyvsablonban érhetők el."
+msgstr "Konfigurálható további metaadat-mezőket ad a publikáció Metaadatok lapjához, a témában való használatra. Minden mezőt a szerzők is, vagy csak a szerkesztők szerkeszthetnek."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Meződefiníciók"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Soronként egy mező, ebben a formátumban: key | Label | type | multilingual. A típus lehet text (alapértelmezett) vagy textarea. Többnyelvű mezőknél az utolsó oszlopba írjon 1-et vagy yes-t. A kulcs csak betűt, számot és aláhúzást fogad el, és ezzel a névvel olvasható ki az érték a sablonban, pl. $publication->getData('printIsbn'). A # jellel kezdődő sorokat a rendszer figyelmen kívül hagyja."
+msgstr "Soronként egy mező, a következő formában: key | Label | type | multilingual | who edits. A típus lehet text (alapértelmezett) vagy textarea. Többnyelvű mezőknél írjon 1-et vagy yes-t a negyedik oszlopba. Írja az ötödik oszlopba, hogy editors, ha a mezőt csak a szerkesztők módosíthatják: a szerzők csak olvasásra látják. Ha üresen hagyja, a szerzők is szerkeszthetik. A kulcs csak betűket, számokat és aláhúzásjelet fogad el, és ez a név, amellyel az érték a témában kiolvasható, pl. $publication->getData('printIsbn'). A #-tel kezdődő sorokat a rendszer figyelmen kívül hagyja."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Figyelmen kívül marad az a sor, amelynek kulcsa már létezik a kiadványban (például title vagy abstract), vagy egy korábbi kulcsot ismétel."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Ezt a mezőt csak a szerkesztők módosíthatják."

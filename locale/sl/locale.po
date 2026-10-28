@@ -14,7 +14,7 @@ msgstr "Metapodatki po meri"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Doda nastavljiva dodatna polja metapodatkov na zavihek Metapodatki publikacije, na voljo v temi knjige."
+msgstr "Na zavihek Metapodatki publikacije doda nastavljiva dodatna polja metapodatkov za uporabo v temi. Vsako polje lahko urejajo tudi avtorji ali samo uredniki."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Definicije polj"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Eno polje na vrstico, v obliki: key | Label | type | multilingual. Vrsta je lahko text (privzeto) ali textarea. Za večjezična polja v zadnji stolpec vpišite 1 ali yes. Ključ sprejema samo črke, številke in podčrtaj ter je ime, s katerim se vrednost prebere v temi, npr. $publication->getData('printIsbn'). Vrstice, ki se začnejo z #, so prezrte."
+msgstr "Eno polje na vrstico v obliki: key | Label | type | multilingual | who edits. Tip je lahko text (privzeto) ali textarea. Za večjezična polja vpišite 1 ali yes v četrti stolpec. V peti stolpec vpišite editors za polje, ki ga lahko spreminjajo samo uredniki: avtorji ga vidijo samo za branje. Pustite ga praznega, da ga lahko urejajo tudi avtorji. Ključ sprejema samo črke, številke in podčrtaj ter je ime, s katerim se vrednost bere v temi, npr. $publication->getData('printIsbn'). Vrstice, ki se začnejo z #, se prezrejo."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Vrstica, katere ključ že obstaja v publikaciji (na primer title ali abstract) ali ponavlja prejšnji ključ, se prezre."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "To polje lahko spreminjajo samo uredniki."

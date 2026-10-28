@@ -14,7 +14,7 @@ msgstr "بيانات وصفية مخصّصة"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "يضيف حقول بيانات وصفية إضافية قابلة للضبط إلى تبويب البيانات الوصفية للمنشور، وتظهر في قالب الكتاب."
+msgstr "يضيف حقول بيانات وصفية إضافية قابلة للتهيئة إلى تبويب البيانات الوصفية للمنشور، لاستخدامها في القالب. يمكن أن يكون كل حقل قابلاً للتحرير من المؤلفين أيضًا أو من المحررين فقط."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "تعريفات الحقول"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "حقل واحد في كل سطر، بالصيغة: key | Label | type | multilingual. يكون النوع text (الافتراضي) أو textarea. استخدم 1 أو yes في العمود الأخير للحقول متعددة اللغات. لا يقبل المفتاح سوى الحروف والأرقام والشرطة السفلية، وهو الاسم المستخدم لقراءة القيمة في القالب، مثل $publication->getData('printIsbn'). وتُتجاهل الأسطر التي تبدأ بـ #."
+msgstr "حقل واحد في كل سطر، بالصيغة: key | Label | type | multilingual | who edits. يمكن أن يكون النوع text (الافتراضي) أو textarea. استخدم 1 أو yes في العمود الرابع للحقول متعددة اللغات. اكتب editors في العمود الخامس لحقل لا يغيّره إلا المحررون: يراه المؤلفون للقراءة فقط. اتركه فارغًا ليتمكن المؤلفون من تحريره أيضًا. يقبل المفتاح الحروف والأرقام والشرطة السفلية فقط، وهو الاسم المستخدم لقراءة القيمة في القالب، مثل $publication->getData('printIsbn'). يتم تجاهل الأسطر التي تبدأ بـ #."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "يُتجاهل السطر الذي يكون مفتاحه موجودًا بالفعل في المنشور (مثل title أو abstract) أو يكرر مفتاحًا سابقًا."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "لا يمكن تغيير هذا الحقل إلا من قبل المحررين."

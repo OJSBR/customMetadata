@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Metadati personalizzati"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Aggiunge campi di metadati aggiuntivi configurabili alla scheda Metadati della pubblicazione, disponibili nel tema del libro."
+msgstr "Aggiunge campi di metadati aggiuntivi configurabili alla scheda Metadati della pubblicazione, da usare nel tema. Ogni campo può essere modificabile anche dagli autori o solo dagli editor."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Definizioni dei campi"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Un campo per riga, nel formato: key | Label | type | multilingual. Il tipo può essere text (predefinito) o textarea. Usa 1 o yes nell'ultima colonna per i campi multilingue. La chiave accetta solo lettere, numeri e trattino basso ed è il nome usato per leggere il valore nel tema, ad es. $publication->getData('printIsbn'). Le righe che iniziano con # vengono ignorate."
+msgstr "Un campo per riga, nel formato: chiave | Etichetta | tipo | multilingue | chi modifica. Il tipo può essere text (predefinito) o textarea. Usare 1 o yes nella quarta colonna per i campi multilingue. Scrivere editors nella quinta colonna per un campo che solo gli editor possono modificare: gli autori lo vedono in sola lettura. Lasciarla vuota perché anche gli autori possano modificarlo. La chiave accetta solo lettere, numeri e trattino basso ed è il nome usato per leggere il valore nel tema, ad es. $publication->getData('printIsbn'). Le righe che iniziano con # vengono ignorate."
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Una riga la cui chiave esiste già nella pubblicazione (come title o abstract) o ripete una chiave precedente viene ignorata."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Solo gli editor possono modificare questo campo."

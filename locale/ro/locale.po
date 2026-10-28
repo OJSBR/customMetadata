@@ -14,7 +14,7 @@ msgstr "Metadate personalizate"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Adaugă câmpuri suplimentare de metadate configurabile în fila Metadate a publicației, disponibile în tema cărții."
+msgstr "Adaugă câmpuri suplimentare de metadate configurabile în fila Metadate a publicației, pentru utilizare în temă. Fiecare câmp poate fi editat și de autori sau doar de editori."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Definiții ale câmpurilor"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Un câmp pe linie, în formatul: key | Label | type | multilingual. Tipul poate fi text (implicit) sau textarea. Folosiți 1 sau yes în ultima coloană pentru câmpurile multilingve. Cheia acceptă doar litere, cifre și liniuță de subliniere și este numele cu care se citește valoarea în temă, de ex. $publication->getData('printIsbn'). Liniile care încep cu # sunt ignorate."
+msgstr "Un câmp pe linie, în formatul: key | Label | type | multilingual | who edits. Tipul poate fi text (implicit) sau textarea. Folosiți 1 sau yes în a patra coloană pentru câmpurile multilingve. Scrieți editors în a cincea coloană pentru un câmp pe care doar editorii îl pot modifica: autorii îl văd doar în citire. Lăsați-o goală pentru ca și autorii să-l poată edita. Cheia acceptă doar litere, cifre și liniuță de subliniere și este numele folosit pentru a citi valoarea în temă, de ex. $publication->getData('printIsbn'). Liniile care încep cu # sunt ignorate."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Un rând a cărui cheie există deja în publicație (cum ar fi title sau abstract) sau repetă o cheie anterioară este ignorat."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Doar editorii pot modifica acest câmp."

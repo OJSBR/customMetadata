@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Metadades personalitzades"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Afegeix camps de metadades addicionals configurables a la pestanya Metadades de la publicació, disponibles al tema del llibre."
+msgstr "Afegeix camps de metadades addicionals configurables a la pestanya Metadades de la publicació, per utilitzar-los al tema. Cada camp pot ser editable també pels autors o només pels editors."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Definicions dels camps"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Un camp per línia, en el format: key | Label | type | multilingual. El tipus pot ser text (per defecte) o textarea. Utilitzeu 1 o yes a l'última columna per als camps multilingües. La clau només admet lletres, números i guió baix, i és el nom amb què es llegeix el valor al tema, p. ex. $publication->getData('printIsbn'). Les línies que comencen amb # s'ignoren."
+msgstr "Un camp per línia, amb el format: clau | Etiqueta | tipus | multilingüe | qui edita. El tipus pot ser text (per defecte) o textarea. Feu servir 1 o yes a la quarta columna per als camps multilingües. Escriviu editors a la cinquena columna per a un camp que només els editors poden canviar: els autors el veuen en mode de només lectura. Deixeu-la buida perquè els autors també el puguin editar. La clau admet només lletres, números i guió baix, i és el nom que s'utilitza per llegir el valor al tema, p. ex. $publication->getData('printIsbn'). Les línies que comencen per # s'ignoren."
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Una línia amb una clau que ja existeix a la publicació (com title o abstract) o que repeteix una clau anterior s'ignora."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Només els editors poden canviar aquest camp."

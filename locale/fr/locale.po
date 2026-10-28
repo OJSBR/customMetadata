@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Métadonnées personnalisées"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Ajoute des champs de métadonnées supplémentaires configurables à l'onglet Métadonnées de la publication, disponibles dans le thème du livre."
+msgstr "Ajoute des champs de métadonnées supplémentaires configurables à l'onglet Métadonnées de la publication, pour utilisation dans le thème. Chaque champ peut être modifiable aussi par les auteurs ou seulement par les éditeurs."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Définitions des champs"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Un champ par ligne, au format : key | Label | type | multilingual. Le type peut être text (par défaut) ou textarea. Utilisez 1 ou yes dans la dernière colonne pour les champs multilingues. La clé n'accepte que des lettres, des chiffres et le tiret bas ; c'est le nom utilisé pour lire la valeur dans le thème, par ex. $publication->getData('printIsbn'). Les lignes commençant par # sont ignorées."
+msgstr "Un champ par ligne, au format : clé | Libellé | type | multilingue | qui modifie. Le type peut être text (par défaut) ou textarea. Utilisez 1 ou yes dans la quatrième colonne pour les champs multilingues. Écrivez editors dans la cinquième colonne pour un champ que seuls les éditeurs peuvent modifier : les auteurs le voient en lecture seule. Laissez-la vide pour que les auteurs puissent aussi le modifier. La clé n'accepte que des lettres, des chiffres et le tiret bas ; c'est le nom utilisé pour lire la valeur dans le thème, par ex. $publication->getData('printIsbn'). Les lignes commençant par # sont ignorées."
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Une ligne dont la clé existe déjà dans la publication (comme title ou abstract) ou répète une clé précédente est ignorée."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Seuls les éditeurs peuvent modifier ce champ."

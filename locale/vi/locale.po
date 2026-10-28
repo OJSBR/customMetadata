@@ -14,7 +14,7 @@ msgstr "Siêu dữ liệu tùy chỉnh"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Thêm các trường siêu dữ liệu bổ sung có thể cấu hình vào thẻ Siêu dữ liệu của ấn phẩm, hiển thị trong giao diện sách."
+msgstr "Thêm các trường siêu dữ liệu bổ sung có thể cấu hình vào thẻ Siêu dữ liệu của ấn phẩm, để dùng trong giao diện. Mỗi trường có thể được tác giả cùng chỉnh sửa hoặc chỉ biên tập viên chỉnh sửa."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Định nghĩa trường"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Mỗi dòng một trường, theo định dạng: key | Label | type | multilingual. Kiểu có thể là text (mặc định) hoặc textarea. Dùng 1 hoặc yes ở cột cuối cho các trường đa ngữ. Khóa chỉ nhận chữ cái, chữ số và dấu gạch dưới, và là tên dùng để đọc giá trị trong giao diện, ví dụ $publication->getData('printIsbn'). Các dòng bắt đầu bằng # sẽ bị bỏ qua."
+msgstr "Mỗi dòng một trường, theo định dạng: key | Label | type | multilingual | who edits. Kiểu có thể là text (mặc định) hoặc textarea. Dùng 1 hoặc yes ở cột thứ tư cho trường đa ngôn ngữ. Ghi editors ở cột thứ năm cho trường mà chỉ biên tập viên được thay đổi: tác giả chỉ xem được ở chế độ chỉ đọc. Để trống thì tác giả cũng có thể chỉnh sửa. Khóa chỉ chấp nhận chữ cái, chữ số và dấu gạch dưới, và là tên dùng để đọc giá trị trong giao diện, ví dụ $publication->getData('printIsbn'). Các dòng bắt đầu bằng # sẽ bị bỏ qua."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Dòng có khóa đã tồn tại trong ấn phẩm (như title hoặc abstract) hoặc lặp lại khóa trước đó sẽ bị bỏ qua."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Chỉ biên tập viên mới có thể thay đổi trường này."

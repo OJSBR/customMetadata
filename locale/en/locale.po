@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Custom Metadata"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Adds configurable extra metadata fields to the publication Metadata tab, available in the book theme."
+msgstr "Adds configurable extra metadata fields to the publication Metadata tab, for use in the theme. Each field can be edited by the authors too or by the editors only."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Field definitions"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "One field per line, in the format: key | Label | type | multilingual. Type may be text (default) or textarea. Use 1 or yes in the last column for multilingual fields. The key accepts only letters, numbers and underscore and is the name used to read the value in the theme, e.g. $publication->getData('printIsbn'). Lines starting with # are ignored."
+msgstr "One field per line, in the format: key | Label | type | multilingual | who edits. Type may be text (default) or textarea. Use 1 or yes in the fourth column for multilingual fields. Write editors in the fifth column for a field only the editors can change: the authors see it read-only. Leave it empty and the authors can edit it too. The key accepts only letters, numbers and underscore and is the name used to read the value in the theme, e.g. $publication->getData('printIsbn'). Lines starting with # are ignored."
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "A line whose key already exists in the publication (such as title or abstract) or repeats an earlier key is ignored."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Only the editors can change this field."

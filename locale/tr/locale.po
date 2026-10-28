@@ -14,7 +14,7 @@ msgstr "Özel Üstveri"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Yayının Üstveri sekmesine yapılandırılabilir ek üstveri alanları ekler; bu alanlar kitap temasında kullanılabilir."
+msgstr "Yayının Üstveri sekmesine, temada kullanılmak üzere yapılandırılabilir ek üstveri alanları ekler. Her alan yazarlar tarafından da ya da yalnızca editörler tarafından düzenlenebilir."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Alan tanımları"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Her satırda bir alan, şu biçimde: key | Label | type | multilingual. Tür text (varsayılan) veya textarea olabilir. Çok dilli alanlar için son sütuna 1 ya da yes yazın. Anahtar yalnızca harf, rakam ve alt çizgi kabul eder ve değerin temada okunduğu addır, örn. $publication->getData('printIsbn'). # ile başlayan satırlar yok sayılır."
+msgstr "Her satıra bir alan, şu biçimde: key | Label | type | multilingual | who edits. Tür text (varsayılan) veya textarea olabilir. Çok dilli alanlar için dördüncü sütuna 1 veya yes yazın. Yalnızca editörlerin değiştirebileceği bir alan için beşinci sütuna editors yazın: yazarlar onu salt okunur görür. Boş bırakırsanız yazarlar da düzenleyebilir. Anahtar yalnızca harf, rakam ve alt çizgi kabul eder ve temada değeri okumak için kullanılan addır, ör. $publication->getData('printIsbn'). # ile başlayan satırlar yok sayılır."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Anahtarı yayında zaten bulunan (title veya abstract gibi) ya da önceki bir anahtarı tekrarlayan satır yok sayılır."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Bu alanı yalnızca editörler değiştirebilir."

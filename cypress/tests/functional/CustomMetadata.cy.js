@@ -4,16 +4,19 @@
  * Copyright (c) 2026 OJSBR (https://ojsbr.com)
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * Functional tests: the field definitions are saved from the plugin settings,
- * and the fields they declare appear on the publication Metadata tab and keep
- * what the editor saves there.
+ * Functional tests, on OJS and OMP: the field definitions are saved from the
+ * plugin settings, the fields they declare appear on the publication Metadata tab
+ * and keep what the editor saves there, and a field kept for the editors is
+ * read-only for an author, whose change to it the publication API refuses.
  *
- * Parameters (--env): contextPath, adminUser, adminPassword (captcha on login
- * must be off for the run) and submissionId (a submission whose current
- * publication can be edited; default 1). The defaults match the data set of
- * PKP's continuous integration, and the first test enables the plugin when it is
- * off. Selectors use ids and names, so the spec runs against a press in any
- * language. The definitions and the values touched are put back at the end.
+ * Parameters (--env): contextPath, adminUser, adminPassword, authorUser and
+ * authorPassword (captcha on login must be off for the run) and submissionId (a
+ * submission whose current publication can be edited; default 1). The defaults
+ * match the data set of PKP's continuous integration (zzedd is an author in the
+ * data of OJS and OMP), and the first test enables the plugin when it is off. The
+ * author works on a submission of their own, made by the spec and deleted at the
+ * end. Selectors use ids and names, so the spec runs in any language. The
+ * definitions and the values touched are put back at the end.
  */
 
 describe('Custom Metadata plugin', function() {
@@ -21,12 +24,16 @@ describe('Custom Metadata plugin', function() {
 	const adminUser = Cypress.env('adminUser') || 'admin';
 	const adminPassword = Cypress.env('adminPassword') || 'admin';
 	const submissionId = Cypress.env('submissionId') || 1;
+	const authorUser = Cypress.env('authorUser') || 'zzedd';
+	const authorPassword = Cypress.env('authorPassword') || 'zzeddzzedd';
 
 	const rowName = 'custommetadataplugin';
 	const settingsForm = 'form[id="customMetadataSettingsForm"]';
 	const definition = settingsForm + ' textarea[name="customFieldsDefinition"]';
 	const field = (key) => '[id="metadata-' + key + '-control"]';
-	const testDefinition = "# review test\ntitle | Title again | text\nreviewIsbn | Review ISBN | text\nreviewIsbn | Repeated | textarea\nreviewNote | Review note | textarea";
+	const testDefinition = "# review test\ntitle | Title again | text\nreviewIsbn | Review ISBN | text\nreviewIsbn | Repeated | textarea\nreviewNote | Review note | textarea | | editors";
+	// The same fields with no column for the editors: the counter-check.
+	const openDefinition = testDefinition.replace(' | | editors', '');
 	let original = null;
 
 	// ---- OJSBR spec helpers (padrão v2): work on OJS/OMP 3.3, 3.4 and 3.5 and in PKP's CI ----
@@ -182,11 +189,114 @@ describe('Custom Metadata plugin', function() {
 		saveMetadata();
 	});
 
-	it('Puts the definitions back', function() {
+	// ---- A field kept for the editors, seen from both sides ----
+
+	const apiUrl = (path) => pageUrl('api/v1/' + path);
+	let authorSubmission = null;
+
+	// A call of the publication API from the page, with the session and the CSRF token of
+	// whoever is signed in; resolves to the status and the body, whatever the status.
+	const call = (method, path, body) => cy.window({log: false}).then((win) => cy.wrap(
+		win.fetch(apiUrl(path), {
+			method: method,
+			credentials: 'same-origin',
+			headers: {'Content-Type': 'application/json', 'X-Csrf-Token': win.pkp.currentUser.csrfToken},
+			body: body === undefined ? undefined : JSON.stringify(body),
+		}).then((response) => response.json().then((json) => ({status: response.status, body: json}))),
+		{log: false, timeout: 30000}
+	));
+
+	const publicationPath = () => 'submissions/' + authorSubmission.id + '/publications/' + authorSubmission.currentPublicationId;
+
+	// The fields of the Metadata form as the API builds it for whoever is signed in.
+	const metadataFields = () => call('GET', publicationPath() + '/_components/metadata').then((response) => {
+		expect(response.status).to.eq(200);
+		const fields = {};
+		response.body.fields.forEach((field) => {
+			fields[field.name] = field;
+		});
+		return fields;
+	});
+
+	const storedNote = () => call('GET', publicationPath()).then((response) => {
+		expect(response.status).to.eq(200);
+		return response.body.reviewNote;
+	});
+
+	it('Lets an author make a submission of their own', function() {
+		// The section of OJS is read as an editor: a new author account cannot list them.
+		login(adminUser, adminPassword);
+		cy.get('meta[name="generator"]').invoke('attr', 'content').then((generator) => {
+			const body = {locale: 'en'};
+			const ready = /Open Journal Systems/.test(generator)
+				? call('GET', 'sections?count=1').then((response) => {
+					body.sectionId = response.body.items[0].id;
+				})
+				: cy.wrap(null);
+			ready.then(() => {
+				login(authorUser, authorPassword);
+				call('POST', 'submissions', body).then((response) => {
+					expect(response.status, JSON.stringify(response.body)).to.eq(200);
+					authorSubmission = response.body;
+				});
+			});
+		});
+	});
+
+	it('Shows the field of the editors read-only to the author and refuses a change', function() {
+		login(authorUser, authorPassword);
+		metadataFields().then((fields) => {
+			expect(fields.reviewIsbn.component).to.eq('field-text');
+			expect(fields.reviewNote.component).to.eq('field-html');
+		});
+		call('PUT', publicationPath(), {reviewIsbn: 'author-isbn'}).its('status').should('eq', 200);
+		call('PUT', publicationPath(), {reviewNote: 'Changed by the author'}).then((response) => {
+			expect(response.status).to.eq(400);
+			expect(response.body).to.have.property('reviewNote');
+		});
+		storedNote().should('be.oneOf', [null, undefined, '']);
+	});
+
+	it('Lets the editor fill the field of the editors', function() {
+		login(adminUser, adminPassword);
+		metadataFields().then((fields) => {
+			expect(fields.reviewNote.component).to.eq('field-textarea');
+		});
+		call('PUT', publicationPath(), {reviewNote: 'Note <b>of</b> the editor'}).its('status').should('eq', 200);
+		storedNote().should('eq', 'Note <b>of</b> the editor');
+		call('GET', publicationPath()).its('body.reviewIsbn').should('eq', 'author-isbn');
+	});
+
+	it('Shows the editor\'s value to the author, who can send it back but not change it', function() {
+		login(authorUser, authorPassword);
+		metadataFields().then((fields) => {
+			expect(fields.reviewNote.component).to.eq('field-html');
+			expect(fields.reviewNote.description).to.contain('Note &lt;b&gt;of&lt;/b&gt; the editor');
+		});
+		call('PUT', publicationPath(), {reviewNote: 'Note <b>of</b> the editor', reviewIsbn: 'author-isbn-2'}).its('status').should('eq', 200);
+		call('PUT', publicationPath(), {reviewNote: ''}).its('status').should('eq', 400);
+		storedNote().should('eq', 'Note <b>of</b> the editor');
+	});
+
+	it('Counter-check: without the fifth column the author changes it', function() {
+		login(adminUser, adminPassword);
+		openPluginsTab();
+		openSettings();
+		saveDefinition(openDefinition);
+		login(authorUser, authorPassword);
+		metadataFields().its('reviewNote.component').should('eq', 'field-textarea');
+		call('PUT', publicationPath(), {reviewNote: 'Changed by the author'}).its('status').should('eq', 200);
+		storedNote().should('eq', 'Changed by the author');
+	});
+
+	it('Deletes the submission of the author and puts the definitions back', function() {
+		login(adminUser, adminPassword);
+		if (authorSubmission) {
+			call('DELETE', 'submissions/' + authorSubmission.id).its('status').should('eq', 200);
+		}
 		if (original === null) {
 			return;
 		}
-		login(adminUser, adminPassword);
 		openPluginsTab();
 		openSettings();
 		saveDefinition(original);

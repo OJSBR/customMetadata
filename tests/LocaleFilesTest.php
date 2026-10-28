@@ -18,7 +18,7 @@ use PKP\tests\PKPTestCase;
 
 class LocaleFilesTest extends PKPTestCase
 {
-    /** Locale codes shipped by the plugin, as OMP 3.5 names them. */
+    /** Locale codes shipped by the plugin, as OJS and OMP 3.5 name them. */
     public const LOCALES = [
         'ar', 'az', 'bg', 'ca', 'cs', 'da', 'de', 'el', 'en', 'es', 'eu',
         'fa', 'fi', 'fr', 'fr_CA', 'gl', 'hu', 'hy', 'id', 'it', 'ja', 'ka',
@@ -60,7 +60,7 @@ class LocaleFilesTest extends PKPTestCase
         $expected = self::LOCALES;
         sort($expected);
 
-        // A code from another OMP line (fr vs fr_FR, pt vs pt_PT) silently never loads.
+        // A code from another OJS or OMP line (fr vs fr_FR, pt vs pt_PT) silently never loads.
         $this->assertSame($expected, $dirs);
         $this->assertCount(count(self::LOCALES), $this->files());
     }
@@ -69,7 +69,7 @@ class LocaleFilesTest extends PKPTestCase
     {
         $files = $this->files();
         $master = array_keys($files[self::MASTER]->entries);
-        $this->assertCount(5, $master);
+        $this->assertCount(6, $master);
 
         foreach ($files as $locale => $file) {
             $this->assertSame($master, array_keys($file->entries), "Keys of {$locale} differ from " . self::MASTER . '.');

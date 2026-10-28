@@ -14,7 +14,7 @@ msgstr "Metadata Kustom"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Menambahkan bidang metadata tambahan yang dapat dikonfigurasi pada tab Metadata publikasi, tersedia di tema buku."
+msgstr "Menambahkan bidang metadata tambahan yang dapat dikonfigurasi ke tab Metadata publikasi, untuk digunakan dalam tema. Setiap bidang dapat disunting juga oleh penulis atau hanya oleh editor."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Definisi bidang"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Satu bidang per baris, dengan format: key | Label | type | multilingual. Tipe dapat berupa text (bawaan) atau textarea. Gunakan 1 atau yes pada kolom terakhir untuk bidang multibahasa. Kunci hanya menerima huruf, angka, dan garis bawah, dan merupakan nama yang dipakai untuk membaca nilainya di tema, misalnya $publication->getData('printIsbn'). Baris yang diawali # diabaikan."
+msgstr "Satu bidang per baris, dengan format: key | Label | type | multilingual | who edits. Tipe dapat berupa text (bawaan) atau textarea. Gunakan 1 atau yes pada kolom keempat untuk bidang multibahasa. Tulis editors pada kolom kelima untuk bidang yang hanya dapat diubah oleh editor: penulis melihatnya hanya-baca. Biarkan kosong agar penulis juga dapat menyuntingnya. Kunci hanya menerima huruf, angka, dan garis bawah, dan merupakan nama yang digunakan untuk membaca nilai dalam tema, mis. $publication->getData('printIsbn'). Baris yang diawali # diabaikan."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Baris yang kuncinya sudah ada di publikasi (seperti title atau abstract) atau mengulang kunci sebelumnya diabaikan."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Hanya editor yang dapat mengubah bidang ini."

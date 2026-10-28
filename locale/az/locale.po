@@ -14,7 +14,7 @@ msgstr "Fərdi metaməlumatlar"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Nəşrin Metaməlumat sekmesinə kitab mövzusunda görünən əlavə, tənzimlənə bilən metaməlumat sahələri əlavə edir."
+msgstr "Nəşrin Metadata tabına tənzimlənə bilən əlavə metadata sahələri əlavə edir, mövzuda istifadə üçün. Hər sahə həm də müəlliflər tərəfindən və ya yalnız redaktorlar tərəfindən redaktə oluna bilər."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Sahə tərifləri"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Hər sətirdə bir sahə, formatda: key | Label | type | multilingual. Tip text (standart) və ya textarea ola bilər. Çoxdilli sahələr üçün son sütunda 1 və ya yes yazın. Açar yalnız hərf, rəqəm və alt xətt qəbul edir və mövzuda dəyəri oxumaq üçün istifadə olunan addır, məsələn $publication->getData('printIsbn'). # ilə başlayan sətirlər nəzərə alınmır."
+msgstr "Hər sətirdə bir sahə, formatda: key | Label | type | multilingual | who edits. Tip text (standart) və ya textarea ola bilər. Çoxdilli sahələr üçün dördüncü sütunda 1 və ya yes yazın. Yalnız redaktorların dəyişə biləcəyi sahə üçün beşinci sütunda editors yazın: müəlliflər onu yalnız oxumaq üçün görür. Boş buraxsanız, müəlliflər də onu redaktə edə bilər. Açar yalnız hərf, rəqəm və alt xətt qəbul edir və mövzuda dəyəri oxumaq üçün istifadə olunan addır, məsələn $publication->getData('printIsbn'). # ilə başlayan sətirlər nəzərə alınmır."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Açarı nəşrdə artıq mövcud olan (məsələn, title və ya abstract) və ya əvvəlki açarı təkrarlayan sətir nəzərə alınmır."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Bu sahəni yalnız redaktorlar dəyişə bilər."

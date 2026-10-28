@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Metadados Personalizados"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Permite cadastrar campos de metadados adicionais na aba Metadados da publicação, para uso no tema do livro."
+msgstr "Permite cadastrar campos de metadados adicionais na aba Metadados da publicação, para uso no tema. Cada campo pode ser editável também pelos autores ou somente pelos editores."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Definição dos campos"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Um campo por linha, no formato: chave | Rótulo | tipo | multilíngue. O tipo pode ser text (padrão) ou textarea. Use 1 ou sim na última coluna para campos multilíngues. A chave aceita apenas letras, números e sublinhado e é o nome usado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). Linhas iniciadas com # são ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0"
+msgstr "Um campo por linha, no formato: chave | Rótulo | tipo | multilíngue | quem edita. O tipo pode ser text (padrão) ou textarea. Use 1 ou sim na quarta coluna para campos multilíngues. Escreva editores na quinta coluna para um campo que só os editores podem alterar: os autores o veem somente para leitura. Deixe em branco para que os autores também possam editá-lo. A chave aceita apenas letras, números e sublinhado e é o nome usado para chamar o valor no tema, por exemplo $publication->getData('isbnImpresso'). Linhas iniciadas com # são ignoradas. Exemplo: isbnImpresso | ISBN Impresso | text | 0 | editores"
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "É ignorada a linha cuja chave já existe na publicação (como title ou abstract) ou que repete uma chave anterior."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Somente os editores podem alterar este campo."

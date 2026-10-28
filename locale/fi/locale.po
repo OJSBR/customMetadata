@@ -14,7 +14,7 @@ msgstr "Mukautetut metatiedot"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Lisää julkaisun Metatiedot-välilehdelle mukautettavia lisämetatietokenttiä, jotka ovat käytettävissä kirjateemassa."
+msgstr "Lisää julkaisun Metatiedot-välilehdelle määritettäviä lisämetatietokenttiä teemassa käytettäviksi. Kutakin kenttää voivat muokata myös kirjoittajat tai vain toimittajat."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Kenttien määritykset"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Yksi kenttä riviä kohden muodossa: key | Label | type | multilingual. Tyyppi voi olla text (oletus) tai textarea. Käytä monikielisissä kentissä viimeisessä sarakkeessa arvoa 1 tai yes. Avain hyväksyy vain kirjaimia, numeroita ja alaviivan, ja se on nimi, jolla arvo luetaan teemassa, esim. $publication->getData('printIsbn'). Rivit, jotka alkavat merkillä #, ohitetaan."
+msgstr "Yksi kenttä riviä kohden muodossa: key | Label | type | multilingual | who edits. Tyyppi voi olla text (oletus) tai textarea. Käytä neljännessä sarakkeessa arvoa 1 tai yes monikielisille kentille. Kirjoita viidenteen sarakkeeseen editors kentälle, jota vain toimittajat voivat muuttaa: kirjoittajat näkevät sen vain luku -tilassa. Jätä se tyhjäksi, niin myös kirjoittajat voivat muokata sitä. Avain hyväksyy vain kirjaimia, numeroita ja alaviivan, ja se on nimi, jolla arvo luetaan teemassa, esim. $publication->getData('printIsbn'). #-merkillä alkavat rivit ohitetaan."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Rivi, jonka avain on jo julkaisussa (esimerkiksi title tai abstract) tai toistaa aiemman avaimen, ohitetaan."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Vain toimittajat voivat muuttaa tätä kenttää."

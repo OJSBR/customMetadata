@@ -14,7 +14,7 @@ msgstr "فراداده‌های سفارشی"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "فیلدهای فرادادهٔ اضافی و قابل تنظیم را به زبانهٔ فرادادهٔ انتشار می‌افزاید که در پوستهٔ کتاب در دسترس است."
+msgstr "فیلدهای فراداده اضافی قابل پیکربندی را به زبانه فراداده انتشار اضافه می‌کند تا در پوسته استفاده شوند. هر فیلد می‌تواند توسط نویسندگان نیز یا فقط توسط ویراستاران ویرایش شود."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "تعریف فیلدها"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "هر سطر یک فیلد، با قالب: key | Label | type | multilingual. نوع می‌تواند text (پیش‌فرض) یا textarea باشد. برای فیلدهای چندزبانه در ستون آخر 1 یا yes بنویسید. کلید فقط حروف، عدد و زیرخط می‌پذیرد و همان نامی است که مقدار با آن در پوسته خوانده می‌شود، مثلاً $publication->getData('printIsbn'). سطرهایی که با # آغاز شوند نادیده گرفته می‌شوند."
+msgstr "هر خط یک فیلد، با قالب: key | Label | type | multilingual | who edits. نوع می‌تواند text (پیش‌فرض) یا textarea باشد. برای فیلدهای چندزبانه در ستون چهارم 1 یا yes بنویسید. برای فیلدی که فقط ویراستاران می‌توانند تغییر دهند، در ستون پنجم editors بنویسید: نویسندگان آن را فقط‌خواندنی می‌بینند. اگر خالی بماند، نویسندگان نیز می‌توانند آن را ویرایش کنند. کلید فقط حروف، اعداد و زیرخط را می‌پذیرد و نامی است که برای خواندن مقدار در پوسته به کار می‌رود، مثلاً $publication->getData('printIsbn'). خطوطی که با # آغاز می‌شوند نادیده گرفته می‌شوند."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "سطری که کلید آن از قبل در انتشار وجود دارد (مانند title یا abstract) یا کلید قبلی را تکرار می‌کند نادیده گرفته می‌شود."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "فقط ویراستاران می‌توانند این فیلد را تغییر دهند."

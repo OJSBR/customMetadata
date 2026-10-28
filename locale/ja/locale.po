@@ -14,7 +14,7 @@ msgstr "カスタムメタデータ"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "出版物のメタデータタブに設定可能な追加メタデータ項目を加え、書籍テーマで利用できるようにします。"
+msgstr "出版物のメタデータタブに設定可能な追加メタデータ項目を加え、テーマで利用できるようにします。各項目は著者も編集できるか、編集者のみが編集できるかを選べます。"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "フィールド定義"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "1行につき1項目を key | Label | type | multilingual の形式で記述します。type には text（既定）または textarea を指定できます。多言語項目では最後の列に 1 または yes を入れます。key は英数字とアンダースコアのみで、テーマ内で値を読み出す際の名前になります（例: $publication->getData('printIsbn')）。# で始まる行は無視されます。"
+msgstr "1行につき1項目を key | Label | type | multilingual | who edits の形式で記述します。type には text（既定）または textarea を指定できます。多言語項目では4列目に 1 または yes を入れます。編集者だけが変更できる項目は5列目に editors と書きます。著者には読み取り専用で表示されます。空欄にすると著者も編集できます。key は英数字とアンダースコアのみで、テーマ内で値を読み出す際の名前になります（例: $publication->getData('printIsbn')）。# で始まる行は無視されます。"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "キーが出版物にすでに存在する行（title や abstract など）や、前の行と同じキーの行は無視されます。"
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "この項目は編集者のみが変更できます。"

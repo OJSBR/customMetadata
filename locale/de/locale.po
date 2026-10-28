@@ -12,13 +12,16 @@ msgid "plugins.generic.customMetadata.displayName"
 msgstr "Benutzerdefinierte Metadaten"
 
 msgid "plugins.generic.customMetadata.description"
-msgstr "Fügt konfigurierbare zusätzliche Metadatenfelder zum Metadaten-Tab der Publikation hinzu, verfügbar im Buch-Theme."
+msgstr "Fügt konfigurierbare zusätzliche Metadatenfelder zum Metadaten-Tab der Publikation hinzu, zur Verwendung im Theme. Jedes Feld kann auch von den Autor/innen oder nur von den Herausgeber/innen bearbeitet werden."
 
 msgid "plugins.generic.customMetadata.fields.label"
 msgstr "Felddefinitionen"
 
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Ein Feld pro Zeile, im Format: key | Label | type | multilingual. Der Typ kann text (Standard) oder textarea sein. Verwenden Sie 1 oder yes in der letzten Spalte für mehrsprachige Felder. Der Schlüssel akzeptiert nur Buchstaben, Zahlen und Unterstrich und ist der Name, mit dem der Wert im Theme gelesen wird, z. B. $publication->getData('printIsbn'). Zeilen, die mit # beginnen, werden ignoriert."
+msgstr "Ein Feld pro Zeile, im Format: Schlüssel | Bezeichnung | Typ | mehrsprachig | wer bearbeitet. Der Typ kann text (Standard) oder textarea sein. Verwenden Sie 1 oder yes in der vierten Spalte für mehrsprachige Felder. Schreiben Sie editors in die fünfte Spalte für ein Feld, das nur die Herausgeber/innen ändern können: Die Autor/innen sehen es schreibgeschützt. Bleibt sie leer, können auch die Autor/innen es bearbeiten. Der Schlüssel akzeptiert nur Buchstaben, Zahlen und Unterstrich und ist der Name, mit dem der Wert im Theme gelesen wird, z. B. $publication->getData('printIsbn'). Zeilen, die mit # beginnen, werden ignoriert."
 
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Eine Zeile, deren Schlüssel in der Publikation bereits existiert (etwa title oder abstract) oder einen früheren Schlüssel wiederholt, wird ignoriert."
+
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Nur die Herausgeber/innen können dieses Feld ändern."

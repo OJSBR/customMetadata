@@ -14,7 +14,7 @@ msgstr "Vlastní metadata"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Přidává konfigurovatelná doplňková pole metadat na kartu Metadata publikace, dostupná v šabloně knihy."
+msgstr "Přidává konfigurovatelná doplňková metadatová pole na kartu Metadata publikace, pro použití v šabloně vzhledu. Každé pole mohou upravovat i autoři, nebo jen editoři."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Definice polí"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Jedno pole na řádek, ve formátu: key | Label | type | multilingual. Typ může být text (výchozí) nebo textarea. Pro vícejazyčná pole použijte v posledním sloupci 1 nebo yes. Klíč přijímá pouze písmena, číslice a podtržítko a je to název, kterým se hodnota čte v šabloně, např. $publication->getData('printIsbn'). Řádky začínající znakem # se ignorují."
+msgstr "Jedno pole na řádek ve formátu: key | Label | type | multilingual | who edits. Typ může být text (výchozí) nebo textarea. Pro vícejazyčná pole uveďte ve čtvrtém sloupci 1 nebo yes. Do pátého sloupce napište editors u pole, které mohou měnit jen editoři: autoři ho vidí jen pro čtení. Ponechte ho prázdný a pole mohou upravovat i autoři. Klíč přijímá pouze písmena, číslice a podtržítko a je to název, kterým se hodnota čte v šabloně vzhledu, např. $publication->getData('printIsbn'). Řádky začínající znakem # se ignorují."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "Řádek, jehož klíč už v publikaci existuje (například title nebo abstract) nebo opakuje dřívější klíč, se ignoruje."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Toto pole mohou měnit pouze editoři."

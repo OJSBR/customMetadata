@@ -14,7 +14,7 @@ msgstr "Anpassade metadata"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.description"
-msgstr "Lägger till konfigurerbara extra metadatafält på publikationens Metadata-flik, tillgängliga i boktemat."
+msgstr "Lägger till konfigurerbara extra metadatafält på publikationens flik Metadata, för användning i temat. Varje fält kan redigeras även av författarna eller bara av redaktörerna."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.label"
@@ -22,8 +22,12 @@ msgstr "Fältdefinitioner"
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.description"
-msgstr "Ett fält per rad, i formatet: key | Label | type | multilingual. Typen kan vara text (standard) eller textarea. Använd 1 eller yes i sista kolumnen för flerspråkiga fält. Nyckeln accepterar endast bokstäver, siffror och understreck och är namnet som värdet läses med i temat, t.ex. $publication->getData('printIsbn'). Rader som börjar med # ignoreras."
+msgstr "Ett fält per rad, i formatet: key | Label | type | multilingual | who edits. Typen kan vara text (standard) eller textarea. Använd 1 eller yes i fjärde kolumnen för flerspråkiga fält. Skriv editors i femte kolumnen för ett fält som bara redaktörerna kan ändra: författarna ser det skrivskyddat. Lämna den tom så kan även författarna redigera det. Nyckeln accepterar endast bokstäver, siffror och understreck och är namnet som används för att läsa värdet i temat, t.ex. $publication->getData('printIsbn'). Rader som börjar med # ignoreras."
 
 #, fuzzy
 msgid "plugins.generic.customMetadata.fields.ignored"
 msgstr "En rad vars nyckel redan finns i publikationen (till exempel title eller abstract) eller upprepar en tidigare nyckel ignoreras."
+
+#, fuzzy
+msgid "plugins.generic.customMetadata.editorsOnly"
+msgstr "Endast redaktörerna kan ändra detta fält."
