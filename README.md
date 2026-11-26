@@ -1,10 +1,10 @@
 # Custom Metadata — OMP plugin
 
 [![OMP](https://img.shields.io/badge/OMP-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/omp/)
-[![Version](https://img.shields.io/badge/version-1.0.1.2--omp3.4-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-4.0.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OJS and OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.1.0.0/customMetadata-1.1.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.2-omp3.4/customMetadata-1.0.1.2-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OJS and OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/5.0.0.0/customMetadata-5.0.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/4.0.0.0/customMetadata-4.0.0.0.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Monograph Press (OMP)** that lets you add configurable extra
 metadata fields to the publication **Metadata** tab. The values are persisted in the
@@ -18,8 +18,8 @@ or `$publication->getLocalizedData('key')`.
 
 | OMP version | Branch | Plugin release |
 |-------------|--------|----------------|
-| OJS 3.5.x and OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.1.0.0 |
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
+| OJS 3.5.x and OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 5.0.0.0 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 4.0.0.0 |
 
 > **1.1.0.0, on the 3.5 branch only:** one package for OJS and OMP 3.5, and a fifth column in
 > the definitions that keeps a field for the editors (read-only for the authors, refused by the
@@ -131,8 +131,8 @@ no schema da publicação e ficam disponíveis no tema do livro via
 
 | Versão do OMP | Branch | Release do plugin |
 |---------------|--------|-------------------|
-| OJS 3.5.x e OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.1.0.0 |
-| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
+| OJS 3.5.x e OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 5.0.0.0 |
+| OMP 3.4.x     | [`stable-3_4_0`](../../tree/stable-3_4_0) | 4.0.0.0 |
 
 > **1.1.0.0, só na branch 3.5:** um pacote para OJS e OMP 3.5 e uma quinta coluna nas
 > definições que reserva o campo aos editores (somente leitura para os autores e recusado pela API
