@@ -2,10 +2,10 @@
 
 [![OJS](https://img.shields.io/badge/OJS-3.5-brightgreen)](https://pkp.sfu.ca/ojs/)
 [![OMP](https://img.shields.io/badge/OMP-3.4%20%7C%203.5-brightgreen)](https://pkp.sfu.ca/omp/)
-[![Version](https://img.shields.io/badge/version-1.1.0.0-blue)](version.xml)
+[![Version](https://img.shields.io/badge/version-5.0.0.0-blue)](version.xml)
 [![License](https://img.shields.io/badge/license-GPL--3.0-lightgrey)](LICENSE)
 
-**⬇️ Install package:** [OJS and OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.1.0.0/customMetadata-1.1.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.2-omp3.4/customMetadata-1.0.1.2-omp3.4.tar.gz) — or browse all [Releases](../../releases).
+**⬇️ Install package:** [OJS and OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/5.0.0.0/customMetadata-5.0.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/4.0.0.0/customMetadata-4.0.0.0.tar.gz) — or browse all [Releases](../../releases).
 
 A generic plugin for **Open Journal Systems (OJS)** and **Open Monograph Press (OMP)** that lets
 you add configurable extra metadata fields to the publication **Metadata** tab. Each field is
@@ -20,8 +20,8 @@ schema and are available in the theme via `$publication->getData('key')` or
 
 | Application | Branch | Plugin release |
 |-------------|--------|----------------|
-| OJS 3.5.x and OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 1.1.0.0 |
-| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
+| OJS 3.5.x and OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(default)* | 5.0.0.0 |
+| OMP 3.4.x   | [`stable-3_4_0`](../../tree/stable-3_4_0) | 4.0.0.0 |
 
 One package serves OJS and OMP 3.5: the plugin only uses what both share (the publication
 schema and the Metadata form of the PKP library). Both branches follow PKP issue #11793: the
@@ -156,7 +156,7 @@ Cada campo pode ser editável também pelos autores ou somente pelos editores. O
 persistidos no schema da publicação e ficam disponíveis no tema via
 `$publication->getData('chave')` ou `$publication->getLocalizedData('chave')`.
 
-**⬇️ Pacote de instalação:** [OJS e OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/1.1.0.0/customMetadata-1.1.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/1.0.1.2-omp3.4/customMetadata-1.0.1.2-omp3.4.tar.gz).
+**⬇️ Pacote de instalação:** [OJS e OMP 3.5](https://github.com/OJSBR/customMetadata/releases/download/5.0.0.0/customMetadata-5.0.0.0.tar.gz) · [OMP 3.4](https://github.com/OJSBR/customMetadata/releases/download/4.0.0.0/customMetadata-4.0.0.0.tar.gz).
 
 > **Desenvolvido e mantido pela [OJSBR](https://ojsbr.com).** Veja a seção
 > [Créditos e autoria](#créditos-e-autoria) abaixo.
@@ -165,8 +165,8 @@ persistidos no schema da publicação e ficam disponíveis no tema via
 
 | Aplicação | Branch | Release do plugin |
 |-----------|--------|-------------------|
-| OJS 3.5.x e OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 1.1.0.0 |
-| OMP 3.4.x | [`stable-3_4_0`](../../tree/stable-3_4_0) | 1.0.1.2-omp3.4 |
+| OJS 3.5.x e OMP 3.5.x | [`stable-3_5_0`](../../tree/stable-3_5_0) *(padrão)* | 5.0.0.0 |
+| OMP 3.4.x | [`stable-3_4_0`](../../tree/stable-3_4_0) | 4.0.0.0 |
 
 Um pacote só atende OJS e OMP 3.5: o plugin usa apenas o que os dois compartilham (o schema da
 publicação e o formulário de Metadados da biblioteca da PKP). As duas branches seguem a issue
